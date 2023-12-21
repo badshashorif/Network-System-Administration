@@ -1,0 +1,47 @@
+https://www.facebook.com/1718007998/posts/10209372290540398/?flite=scwspnss
+
+
+"অনলাইন লাইভ Workshop এ ভর্তি চলছে।"
+“The Implementation of RADIUS Authentication in Public Wireless Network”
+👉**রেজিস্ট্রেশন লিংকঃ https://forms.gle/T75V4TXJWsoyvqCW9
+☎️সরাসরি যোগাযোগ : +8801642345631, +8801813658919
+👉কোর্স ফিঃ 3,000/-
+✅কোর্স আউটলাইন:
+DAY-01 ( About AAA and it’s Common Solution):
+==================================
+1. What is AAA?
+2. Less Common Solutions
+3. Common Solutions for AAA.
+4. What is LDAP?
+5. What is Kerberos?
+6. What is RADIUS?
+7. RADIUS vs LDAP.
+8. Why we use RADIUS?
+9. How RADIUS Work?
+10. BASIC Architecture of RADIUS Server.
+11. Details about Lab Environment
+12. RADIUS Server Lab Setup.
+DAY-02 ( Free RADIUS and Dalo RADIUS Server): ==================================
+1. What is Free RADIUS and Dalo RADIUS?
+2. How to Configure Free RADIUS in UBUNTU 20.04
+3. Testing FreeRADIUS
+4. Debugging radiusd
+5. How to Configure Dalo RADIUS in UBUNTU 20.04
+6. Configuring daloRADIUS
+7. Testing daloRADIUS
+DAY-03 ( Dalo RADIUS ):
+=================
+1. Adding a User with daloRADIUS.
+2. Configuring User Information.
+3. User Profile or Plan Creation.
+4. User Profile or Plan modification.
+5. What is NAS and How it How?
+DAY-04 (RADIUS Client / NAS / POP):
+==========================
+1. What is RADIUS Client?
+2. Basic Mikrotik Configuration with Internet Connectivity.
+3. Pool Create for Various types of Services, like DHCP, P2P, PPPoE, HotSpot.
+4. DHCP Configure and Test internet Connectivity.
+5. PPPoE Server Configure and established connectivity with RADIUS Authentication.
+6. HotSpot Server Configure established connectivity with RADIUS Authentication.
+7. E-mail notification established for RADIUS User Access.
