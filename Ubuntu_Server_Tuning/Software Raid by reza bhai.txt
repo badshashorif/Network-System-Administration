@@ -1,0 +1,527 @@
+root@lancache:~# history
+    1  clear
+    2  cd
+    3  apt-get update
+    4  apt-get install
+    5  nano /etc/ssh/sshd_config
+    6  /etc/init.d/ssh restart
+    7  clear
+    8  dig www.google.com
+    9  clear
+   10  fdisk -l
+   11  apt-get upgrade
+   12  apt-get install
+   13  reboot
+   14  history
+   15  fdisk -l
+   16  sudo apt install -y ifupdown vim net-tools
+   17  sudo apt autoremove -y --purge netplan.io resolvconf
+   18  rm -fr /etc/netplan
+   19  ifconfig -a
+   20  ip -br a
+   21  ethtool enp129s0f0
+   22  sudo vim /etc/default/grub
+   23  sudo vim /etc/network/interfaces
+   24  ip route show
+   25  sudo vim /etc/network/interfaces
+   26  apt install --install-recommends linux-generic-hwe-20.04
+   27  sudo systemctl stop systemd-resolved
+   28  sudo systemctl disable systemd-resolved.service
+   29  rm -fr /etc/resolv.conf
+   30  touch /etc/resolv.conf
+   31  echo "nameserver 9.9.9.9" > /etc/resolv.conf
+   32  echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+   33  echo "nameserver 1.0.0.3" >> /etc/resolv.conf
+   34  sudo vim /etc/security/limits.conf
+   35  sudo vim /etc/sysctl.conf
+   36  sudo sysctl -p
+   37  apt install python3-pip
+   38  pip3 install bpytop --upgrade
+   39  bpytop
+   40  reboot
+   41  cat  /etc/os-release
+   42  vim /etc/apt/sources.list
+   43  apt update
+   44  apt upgrade -y
+   45  uname -a
+   46  ip -br a
+   47  vim /etc/ssh/sshd_config
+   48  vim .ssh/authorized_keys
+   49  rm -fr /etc/update-motd.d/*
+   50  date
+   51  dpkg-reconfigure tzdata
+   52  date
+   53  sudo add-apt-repository ppa:jonathonf/zfs
+   54  sudo apt update
+   55  sudo apt install zfsutils-linux gdisk
+   56  fdisk -l |grep sd* |grep TiB
+   57  lsblk
+   58  fdisk -l |grep sd* |grep TiB
+   59  ls -la /dev/disk/by-id/
+   60  ls -la /dev/disk/by-id/ |grep ata
+   61  ls -la /dev/disk/by-id/ |grep scsi
+   62  fdisk -l |grep sd* |grep TiB
+   63  ls -la /dev/disk/by-id/ |grep scsi
+   64  history
+   65  fdisk -l |grep sd* |grep TiB
+   66  lsblk
+   67  ls -la /dev/disk/by-id/ |grep scsi
+   68  sgdisk --zap-all /dev/sda
+   69  sgdisk --zap-all /dev/sdb
+   70  sgdisk --zap-all /dev/sdc
+   71  sgdisk --zap-all /dev/sdd
+   72  sgdisk --zap-all /dev/sde
+   73  sgdisk --zap-all /dev/sdf
+   74  sgdisk --zap-all /dev/sdg
+   75  sgdisk --zap-all /dev/sdh
+   76  ls -la /dev/disk/by-id/ |grep scsi
+   77  apt-get install lsscsi hdparm smartmontools lshw inxi
+   78  lsscsi -s
+   79  smartctl -d megaraid,0 -a /dev/sda |grep Serial
+   80  smartctl -d megaraid,1 -a /dev/sda |grep Serial
+   81  smartctl -d megaraid,2 -a /dev/sda |grep Serial
+   82  smartctl -d megaraid,3 -a /dev/sda |grep Serial
+   83  smartctl -d megaraid,4 -a /dev/sda |grep Serial
+   84  smartctl -d megaraid,5 -a /dev/sda |grep Serial
+   85  smartctl -d megaraid,6 -a /dev/sda |grep Serial
+   86  smartctl -d megaraid,7 -a /dev/sda |grep Serial
+   87  smartctl -d megaraid,8 -a /dev/sda |grep Serial
+   88  smartctl -d megaraid,9 -a /dev/sda |grep Serial
+   89  smartctl -d megaraid,10 -a /dev/sda |grep Serial
+   90  ls -la /dev/disk/by-id/ |grep scsi
+   91  ls -la /dev/disk/by-id/ |grep ata
+   92  sudo zpool create -o ashift=12 -f volume1 raidz scsi-35001173100999a64 scsi-35001173100a56e24 scsi-35002538c5037d7b9 scsi-35002538c5037de04 scsi-35002538c5037df6a scsi-35002538c5037e01d scsi-35002538c5037eb4d scsi-35002538c5037f032
+   93  zpool status
+   94  zpool list
+   95  zfs list
+   96  sudo zfs set sync=disabled volume1
+   97  sudo zfs set compress=lz4 volume1
+   98  sudo zfs set atime=off volume1
+   99  sudo zfs set xattr=sa volume1
+  100  sudo zfs set relatime=off volume1
+  101  sudo zfs set acltype=posixacl volume1
+  102  htop
+  103  bc
+  104  echo "options zfs zfs_arc_max=51539607552" > /etc/modprobe.d/zfs.conf
+  105  apt-mark hold linux-generic linux-image-generic linux-headers-generic
+  106  dpkg -l |grep zfs
+  107  apt-mark hold libzfs4linux zfs-zed zfsutils-linux
+  108  htop
+  109  sudo swapoff /swapfile
+  110  sudo swapoff /swap.img
+  111  sudo rm -fr /swap.img
+  112  sudo fallocate -l 32G /swap.img
+  113  sudo chmod 0600 /swap.img
+  114  sudo mkswap /swap.img
+  115  sudo swapon /swap.img
+  116  htop
+  117  zfs list
+  118  zpool status
+  119  ulimit -n
+  120  zfs list
+  121  reboot
+  122  history
+
+
+
+
+===========================================================================================================================
+
+
+root@lancache:~# history
+    1  clear
+    2  cd
+    3  apt-get update
+    4  apt-get install
+    5  nano /etc/ssh/sshd_config
+    6  /etc/init.d/ssh restart
+    7  clear
+    8  dig www.google.com
+    9  clear
+   10  fdisk -l
+   11  apt-get upgrade
+   12  apt-get install
+   13  reboot
+   14  history
+   15  fdisk -l
+   16  sudo apt install -y ifupdown vim net-tools
+   17  sudo apt autoremove -y --purge netplan.io resolvconf
+   18  rm -fr /etc/netplan
+   19  ifconfig -a
+   20  ip -br a
+   21  ethtool enp129s0f0
+   22  sudo vim /etc/default/grub
+   23  sudo vim /etc/network/interfaces
+   24  ip route show
+   25  sudo vim /etc/network/interfaces
+   26  apt install --install-recommends linux-generic-hwe-20.04
+   27  sudo systemctl stop systemd-resolved
+   28  sudo systemctl disable systemd-resolved.service
+   29  rm -fr /etc/resolv.conf
+   30  touch /etc/resolv.conf
+   31  echo "nameserver 9.9.9.9" > /etc/resolv.conf
+   32  echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+   33  echo "nameserver 1.0.0.3" >> /etc/resolv.conf
+   34  sudo vim /etc/security/limits.conf
+   35  sudo vim /etc/sysctl.conf
+   36  sudo sysctl -p
+   37  apt install python3-pip
+   38  pip3 install bpytop --upgrade
+   39  bpytop
+   40  reboot
+   41  cat  /etc/os-release
+   42  vim /etc/apt/sources.list
+   43  apt update
+   44  apt upgrade -y
+   45  uname -a
+   46  ip -br a
+   47  vim /etc/ssh/sshd_config
+   48  vim .ssh/authorized_keys
+   49  rm -fr /etc/update-motd.d/*
+   50  date
+   51  dpkg-reconfigure tzdata
+   52  date
+   53  sudo add-apt-repository ppa:jonathonf/zfs
+   54  sudo apt update
+   55  sudo apt install zfsutils-linux gdisk
+   56  fdisk -l |grep sd* |grep TiB
+   57  lsblk
+   58  fdisk -l |grep sd* |grep TiB
+   59  ls -la /dev/disk/by-id/
+   60  ls -la /dev/disk/by-id/ |grep ata
+   61  ls -la /dev/disk/by-id/ |grep scsi
+   62  fdisk -l |grep sd* |grep TiB
+   63  ls -la /dev/disk/by-id/ |grep scsi
+   64  history
+   65  fdisk -l |grep sd* |grep TiB
+   66  lsblk
+   67  ls -la /dev/disk/by-id/ |grep scsi
+   68  sgdisk --zap-all /dev/sda
+   69  sgdisk --zap-all /dev/sdb
+   70  sgdisk --zap-all /dev/sdc
+   71  sgdisk --zap-all /dev/sdd
+   72  sgdisk --zap-all /dev/sde
+   73  sgdisk --zap-all /dev/sdf
+   74  sgdisk --zap-all /dev/sdg
+   75  sgdisk --zap-all /dev/sdh
+   76  ls -la /dev/disk/by-id/ |grep scsi
+   77  apt-get install lsscsi hdparm smartmontools lshw inxi
+   78  lsscsi -s
+   79  smartctl -d megaraid,0 -a /dev/sda |grep Serial
+   80  smartctl -d megaraid,1 -a /dev/sda |grep Serial
+   81  smartctl -d megaraid,2 -a /dev/sda |grep Serial
+   82  smartctl -d megaraid,3 -a /dev/sda |grep Serial
+   83  smartctl -d megaraid,4 -a /dev/sda |grep Serial
+   84  smartctl -d megaraid,5 -a /dev/sda |grep Serial
+   85  smartctl -d megaraid,6 -a /dev/sda |grep Serial
+   86  smartctl -d megaraid,7 -a /dev/sda |grep Serial
+   87  smartctl -d megaraid,8 -a /dev/sda |grep Serial
+   88  smartctl -d megaraid,9 -a /dev/sda |grep Serial
+   89  smartctl -d megaraid,10 -a /dev/sda |grep Serial
+   90  ls -la /dev/disk/by-id/ |grep scsi
+   91  ls -la /dev/disk/by-id/ |grep ata
+   92  sudo zpool create -o ashift=12 -f volume1 raidz scsi-35001173100999a64 scsi-35001173100a56e24 scsi-35002538c5037d7b9 scsi-35002538c5037de04 scsi-35002538c5037df6a scsi-35002538c5037e01d scsi-35002538c5037eb4d scsi-35002538c5037f032
+   93  zpool status
+   94  zpool list
+   95  zfs list
+   96  sudo zfs set sync=disabled volume1
+   97  sudo zfs set compress=lz4 volume1
+   98  sudo zfs set atime=off volume1
+   99  sudo zfs set xattr=sa volume1
+  100  sudo zfs set relatime=off volume1
+  101  sudo zfs set acltype=posixacl volume1
+  102  htop
+  103  bc
+  104  echo "options zfs zfs_arc_max=51539607552" > /etc/modprobe.d/zfs.conf
+  105  apt-mark hold linux-generic linux-image-generic linux-headers-generic
+  106  dpkg -l |grep zfs
+  107  apt-mark hold libzfs4linux zfs-zed zfsutils-linux
+  108  htop
+  109  sudo swapoff /swapfile
+  110  sudo swapoff /swap.img
+  111  sudo rm -fr /swap.img
+  112  sudo fallocate -l 32G /swap.img
+  113  sudo chmod 0600 /swap.img
+  114  sudo mkswap /swap.img
+  115  sudo swapon /swap.img
+  116  htop
+  117  zfs list
+  118  zpool status
+  119  ulimit -n
+  120  zfs list
+  121  reboot
+  122  history
+root@lancache:~# root@lancache:~# history
+   12  apt-get install
+   13  reboot
+   14  history
+   15  fdisk -l
+   16  sudo apt install -y ifupdown vim net-tools
+   17  sudo apt autoremove -y --purge netplan.io resolvconf
+   18  rm -fr /etc/netplan
+   19  ifconfig -a
+   20  ip -br a
+   21  ethtool enp129s0f0
+   22  sudo vim /etc/default/grub
+   23  sudo vim /etc/network/interfaces
+   24  ip route show
+   25  sudo vim /etc/network/interfaces
+   26  apt install --install-recommends linux-generic-hwe-20.04
+   27  sudo systemctl stop systemd-resolved
+   28  sudo systemctl disable systemd-resolved.service
+   29  rm -fr /etc/resolv.conf
+   30  touch /etc/resolv.conf
+   31  echo "nameserver 9.9.9.9" > /etc/resolv.conf
+   32  echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+   33  echo "nameserver 1.0.0.3" >> /etc/resolv.conf
+   34  sudo vim /etc/security/limits.conf
+   35  sudo vim /etc/sysctl.conf
+   36  sudo sysctl -p
+   37  apt install python3-pip
+   38  pip3 install bpytop --upgrade
+   39  bpytop
+   40  reboot
+   41  cat  /etc/os-release
+   42  vim /etc/apt/sources.list
+   43  apt update
+   44  apt upgrade -y
+   45  uname -a
+   46  ip -br a
+   47  vim /etc/ssh/sshd_config
+   48  vim .ssh/authorized_keys
+   49  rm -fr /etc/update-motd.d/*
+   50  date
+   51  dpkg-reconfigure tzdata
+   52  date
+   53  sudo add-apt-repository ppa:jonathonf/zfs
+   54  sudo apt update
+   55  sudo apt install zfsutils-linux gdisk
+   56  fdisk -l |grep sd* |grep TiB
+   57  lsblk
+   58  fdisk -l |grep sd* |grep TiB
+   59  ls -la /dev/disk/by-id/
+   60  ls -la /dev/disk/by-id/ |grep ata
+   61  ls -la /dev/disk/by-id/ |grep scsi
+   62  fdisk -l |grep sd* |grep TiB
+   63  ls -la /dev/disk/by-id/ |grep scsi
+   64  history
+   65  fdisk -l |grep sd* |grep TiB
+   66  lsblk
+   67  ls -la /dev/disk/by-id/ |grep scsi
+   68  sgdisk --zap-all /dev/sda
+   69  sgdisk --zap-all /dev/sdb
+   70  sgdisk --zap-all /dev/sdc
+   71  sgdisk --zap-all /dev/sdd
+   72  sgdisk --zap-all /dev/sde
+   73  sgdisk --zap-all /dev/sdf
+   74  sgdisk --zap-all /dev/sdg
+   75  sgdisk --zap-all /dev/sdh
+   76  ls -la /dev/disk/by-id/ |grep scsi
+   77  apt-get install lsscsi hdparm smartmontools lshw inxi
+   78  lsscsi -s
+   79  smartctl -d megaraid,0 -a /dev/sda |grep Serial
+   80  smartctl -d megaraid,1 -a /dev/sda |grep Serial
+   81  smartctl -d megaraid,2 -a /dev/sda |grep Serial
+   82  smartctl -d megaraid,3 -a /dev/sda |grep Serial
+   83  smartctl -d megaraid,4 -a /dev/sda |grep Serial
+   84  smartctl -d megaraid,5 -a /dev/sda |grep Serial
+   85  smartctl -d megaraid,6 -a /dev/sda |grep Serial
+   86  smartctl -d megaraid,7 -a /dev/sda |grep Serial
+   87  smartctl -d megaraid,8 -a /dev/sda |grep Serial
+   88  smartctl -d megaraid,9 -a /dev/sda |grep Serial
+   89  smartctl -d megaraid,10 -a /dev/sda |grep Serial
+   90  ls -la /dev/disk/by-id/ |grep scsi
+   91  ls -la /dev/disk/by-id/ |grep ata
+   92  sudo zpool create -o ashift=12 -f volume1 raidz scsi-35001173100999a64 scsi-35001173100a56e24 scsi-35002538c5037d7b9 scsi-35002538c5037de04 scsi-35002538c5037df6a scsi-35002538c5037e01d scsi-35002538c5037eb4d scsi-35002538c5037f032
+   93  zpool status
+   94  zpool list
+   95  zfs list
+   96  sudo zfs set sync=disabled volume1
+   97  sudo zfs set compress=lz4 volume1
+   98  sudo zfs set atime=off volume1
+   99  sudo zfs set xattr=sa volume1
+  100  sudo zfs set relatime=off volume1
+  101  sudo zfs set acltype=posixacl volume1
+  102  htop
+  103  bc
+  104  echo "options zfs zfs_arc_max=51539607552" > /etc/modprobe.d/zfs.conf
+  105  apt-mark hold linux-generic linux-image-generic linux-headers-generic
+  106  dpkg -l |grep zfs
+  107  apt-mark hold libzfs4linux zfs-zed zfsutils-linux
+  108  htop
+  109  sudo swapoff /swapfile
+  110  sudo swapoff /swap.img
+  111  sudo rm -fr /swap.img
+  112  sudo fallocate -l 32G /swap.img
+  113  sudo chmod 0600 /swap.img
+  114  sudo mkswap /swap.img
+  115  sudo swapon /swap.img
+  116  htoroot@lancache:~#: command not found
+root@lancache:~#     1  clear
+1: command not found
+root@lancache:~#     2  cd
+2: command not found
+root@lancache:~#     3  apt-get update
+3: command not found
+root@lancache:~#     4  apt-get install
+4: command not found
+root@lancache:~#     5  nano /etc/ssh/sshd_config
+5: command not found
+root@lancache:~#     6  /etc/init.d/ssh restart
+6: command not found
+root@lancache:~#     7  clear
+7: command not found
+root@lancache:~#     8  dig www.google.com
+8: command not found
+root@lancache:~#     9  clear
+9: command not found
+root@lancache:~#    10  fdisk -l
+10: command not found
+root@lancache:~#    11  apt-get upgrade
+11: command not found
+root@lancache:~#    12  apt-get install
+12: command not found
+root@lancache:~#    13  reboot
+13: command not found
+root@lancache:~#    14  history
+14: command not found
+root@lancache:~#    15  fdisk -l
+15: command not found
+root@lancache:~#    16  sudo apt install -y ifupdown vim net-tools
+16: command not found
+root@lancache:~#    17  sudo apt autoremove -y --purge netplan.io resolvconf
+17: command not found
+root@lancache:~#    18  rm -fr /etc/netplan
+^Croot@lancache:~#
+root@lancache:~#
+root@lancache:~#
+root@lancache:~#
+root@lancache:~#
+root@lancache:~#
+root@lancache:~#
+root@lancache:~# history
+    1  clear
+    2  cd
+    3  apt-get update
+    4  apt-get install
+    5  nano /etc/ssh/sshd_config
+    6  /etc/init.d/ssh restart
+    7  clear
+    8  dig www.google.com
+    9  clear
+   10  fdisk -l
+   11  apt-get upgrade
+   12  apt-get install
+   13  reboot
+   14  history
+   15  fdisk -l
+   16  sudo apt install -y ifupdown vim net-tools
+   17  sudo apt autoremove -y --purge netplan.io resolvconf
+   18  rm -fr /etc/netplan
+   19  ifconfig -a
+   20  ip -br a
+   21  ethtool enp129s0f0
+   22  sudo vim /etc/default/grub
+   23  sudo vim /etc/network/interfaces
+   24  ip route show
+   25  sudo vim /etc/network/interfaces
+   26  apt install --install-recommends linux-generic-hwe-20.04
+   27  sudo systemctl stop systemd-resolved
+   28  sudo systemctl disable systemd-resolved.service
+   29  rm -fr /etc/resolv.conf
+   30  touch /etc/resolv.conf
+   31  echo "nameserver 9.9.9.9" > /etc/resolv.conf
+   32  echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+   33  echo "nameserver 1.0.0.3" >> /etc/resolv.conf
+   34  sudo vim /etc/security/limits.conf
+   35  sudo vim /etc/sysctl.conf
+   36  sudo sysctl -p
+   37  apt install python3-pip
+   38  pip3 install bpytop --upgrade
+   39  bpytop
+   40  reboot
+   41  cat  /etc/os-release
+   42  vim /etc/apt/sources.list
+   43  apt update
+   44  apt upgrade -y
+   45  uname -a
+   46  ip -br a
+   47  vim /etc/ssh/sshd_config
+   48  vim .ssh/authorized_keys
+   49  rm -fr /etc/update-motd.d/*
+   50  date
+   51  dpkg-reconfigure tzdata
+   52  date
+   53  sudo add-apt-repository ppa:jonathonf/zfs
+   54  sudo apt update
+   55  sudo apt install zfsutils-linux gdisk
+   56  fdisk -l |grep sd* |grep TiB
+   57  lsblk
+   58  fdisk -l |grep sd* |grep TiB
+   59  ls -la /dev/disk/by-id/
+   60  ls -la /dev/disk/by-id/ |grep ata
+   61  ls -la /dev/disk/by-id/ |grep scsi
+   62  fdisk -l |grep sd* |grep TiB
+   63  ls -la /dev/disk/by-id/ |grep scsi
+   64  history
+   65  fdisk -l |grep sd* |grep TiB
+   66  lsblk
+   67  ls -la /dev/disk/by-id/ |grep scsi
+   68  sgdisk --zap-all /dev/sda
+   69  sgdisk --zap-all /dev/sdb
+   70  sgdisk --zap-all /dev/sdc
+   71  sgdisk --zap-all /dev/sdd
+   72  sgdisk --zap-all /dev/sde
+   73  sgdisk --zap-all /dev/sdf
+   74  sgdisk --zap-all /dev/sdg
+   75  sgdisk --zap-all /dev/sdh
+   76  ls -la /dev/disk/by-id/ |grep scsi
+   77  apt-get install lsscsi hdparm smartmontools lshw inxi
+   78  lsscsi -s
+   79  smartctl -d megaraid,0 -a /dev/sda |grep Serial
+   80  smartctl -d megaraid,1 -a /dev/sda |grep Serial
+   81  smartctl -d megaraid,2 -a /dev/sda |grep Serial
+   82  smartctl -d megaraid,3 -a /dev/sda |grep Serial
+   83  smartctl -d megaraid,4 -a /dev/sda |grep Serial
+   84  smartctl -d megaraid,5 -a /dev/sda |grep Serial
+   85  smartctl -d megaraid,6 -a /dev/sda |grep Serial
+   86  smartctl -d megaraid,7 -a /dev/sda |grep Serial
+   87  smartctl -d megaraid,8 -a /dev/sda |grep Serial
+   88  smartctl -d megaraid,9 -a /dev/sda |grep Serial
+   89  smartctl -d megaraid,10 -a /dev/sda |grep Serial
+   90  ls -la /dev/disk/by-id/ |grep scsi
+   91  ls -la /dev/disk/by-id/ |grep ata
+   92  sudo zpool create -o ashift=12 -f volume1 raidz scsi-35001173100999a64 scsi-35001173100a56e24 scsi-35002538c5037d7b9 scsi-35002538c5037de04 scsi-35002538c5037df6a scsi-35002538c5037e01d scsi-35002538c5037eb4d scsi-35002538c5037f032
+   93  zpool status
+   94  zpool list
+   95  zfs list
+   96  sudo zfs set sync=disabled volume1
+   97  sudo zfs set compress=lz4 volume1
+   98  sudo zfs set atime=off volume1
+   99  sudo zfs set xattr=sa volume1
+  100  sudo zfs set relatime=off volume1
+  101  sudo zfs set acltype=posixacl volume1
+  102  htop
+  103  bc
+  104  echo "options zfs zfs_arc_max=51539607552" > /etc/modprobe.d/zfs.conf
+  105  apt-mark hold linux-generic linux-image-generic linux-headers-generic
+  106  dpkg -l |grep zfs
+  107  apt-mark hold libzfs4linux zfs-zed zfsutils-linux
+  108  htop
+  109  sudo swapoff /swapfile
+  110  sudo swapoff /swap.img
+  111  sudo rm -fr /swap.img
+  112  sudo fallocate -l 32G /swap.img
+  113  sudo chmod 0600 /swap.img
+  114  sudo mkswap /swap.img
+  115  sudo swapon /swap.img
+  116  htop
+  117  zfs list
+  118  zpool status
+  119  ulimit -n
+  120  zfs list
+  121  reboot
+  122  history
+  123  root@lancache:~# history
+  124  history
+

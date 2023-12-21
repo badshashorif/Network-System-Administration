@@ -1,0 +1,182 @@
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    ethernets:
+        ens2f0:
+            addresses: [59.153.100.77/27, 172.16.172.78/30]
+            gateway4: 59.153.100.65
+            nameservers:
+                addresses: [59.153.100.70, 8.8.8.8]
+            routes:
+              - to: 0.0.0.0/0
+                via: 59.153.100.65
+                metric: 100
+                table: 101
+            routing-policy:
+              - from: 59.153.100.77/27
+                table: 101
+        ens2f1: 
+            addresses: [172.16.172.126/30]
+            #gateway4: 172.16.172.125
+            nameservers:
+                addresses: [59.153.100.70, 8.8.8.8]
+            routes:
+              - to: 0.0.0.0/0
+                via: 172.16.172.125
+                metric: 200
+                table: 201
+            routing-policy:
+              - from: 172.16.172.126/30
+                table: 201
+    version: 2
+
+
+
+==========================================================
+
+
+root@tvserver2:~# cat /etc/netplan/00-installer-config.yaml
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    eno1:
+      addresses: [59.153.100.86/27]
+      gateway4: 59.153.100.65
+      nameservers:
+        addresses: [8.8.8.8]
+      routes:
+        - to: 0.0.0.0/0
+          via: 59.153.100.65
+          metric: 100
+          table: 101
+      routing-policy:
+        - from: 59.153.100.86/32
+          table: 101
+
+    enp66s0f0:
+      addresses: [172.16.172.182/30]
+      nameservers:
+        addresses: [59.153.100.70, 8.8.8.8]
+      routes:
+        - to: 0.0.0.0/0
+          via: 172.16.172.181
+          metric: 200
+          table: 201
+      routing-policy:
+        - from: 172.16.172.182/30
+          table: 201
+
+    enp66s0f1:
+      addresses: [172.16.172.186/30]
+      nameservers:
+        addresses: [59.153.100.70, 8.8.8.8]
+      routes:
+        - to: 0.0.0.0/0
+          via: 172.16.172.185
+          metric: 300
+          table: 301
+      routing-policy:
+        - from: 172.16.172.186/30
+          table: 301
+
+  version: 2
+
+
+=================================================================
+
+
+root@tvserver2:~# ip -br a
+lo               UNKNOWN        127.0.0.1/8 ::1/128
+eno1             UP             59.153.100.86/27 fe80::baca:3aff:fef6:14fc/64
+eno2             DOWN
+eno3             DOWN
+eno4             DOWN
+enp65s0f0        UP             172.16.172.194/30 fe80::225:90ff:feeb:d59e/64
+enp65s0f1        UP             172.16.172.190/30 fe80::225:90ff:feeb:d59f/64
+enp66s0f0        UP             172.16.172.182/30 fe80::225:90ff:fee2:14ce/64
+enp66s0f1        UP             172.16.172.186/30 fe80::225:90ff:fee2:14cf/64
+root@tvserver2:~#
+root@tvserver2:~#
+root@tvserver2:~#
+root@tvserver2:~#
+root@tvserver2:~#
+root@tvserver2:~# cat /etc/netplan/00-installer-config.yaml
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    eno1:
+      addresses: [59.153.100.86/27]
+      gateway4: 59.153.100.65
+      nameservers:
+        addresses: [8.8.8.8]
+      routes:
+        - to: 0.0.0.0/0
+          via: 59.153.100.65
+          metric: 100
+          table: 101
+      routing-policy:
+        - from: 59.153.100.86/32
+          table: 101
+
+    enp66s0f0:
+      addresses: [172.16.172.182/30]
+      nameservers:
+        addresses: [59.153.100.70, 8.8.8.8]
+      routes:
+        - to: 0.0.0.0/0
+          via: 172.16.172.181
+          metric: 200
+          table: 201
+      routing-policy:
+        - from: 172.16.172.182/30
+          table: 201
+
+    enp66s0f1:
+      addresses: [172.16.172.186/30]
+      nameservers:
+        addresses: [59.153.100.70, 8.8.8.8]
+      routes:
+        - to: 0.0.0.0/0
+          via: 172.16.172.185
+          metric: 300
+          table: 301
+      routing-policy:
+        - from: 172.16.172.186/30
+          table: 301
+
+
+    enp65s0f1:
+      addresses: [172.16.172.190/30]
+      nameservers:
+        addresses: [59.153.100.70, 8.8.8.8]
+      routes:
+        - to: 0.0.0.0/0
+          via: 172.16.172.189
+          metric: 400
+          table: 401
+      routing-policy:
+        - from: 172.16.172.190/30
+          table: 401
+
+
+    enp65s0f0:
+      addresses: [172.16.172.194/30]
+      nameservers:
+        addresses: [59.153.100.70, 8.8.8.8]
+      routes:
+        - to: 0.0.0.0/0
+          via: 172.16.172.193
+          metric: 500
+          table: 501
+      routing-policy:
+        - from: 172.16.172.194/30
+          table: 501
+
+  version: 2
+
+
+
+
