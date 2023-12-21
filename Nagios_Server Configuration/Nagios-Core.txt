@@ -1,0 +1,180 @@
+Refrence Link: https://sysadminote.com/how-to-install-nagios-using-bash-script/
+
+
+
+https://sysadminote.com/wp-content/uploads/downloads/scripts/bash/allions.sh
+
+
+
+
+
+Congratulation, Nagios installation Completed successfullyy.
+
+Here is detail information:
+Nagios Web Frontend Url             : http://localhost/nagios  or  http://ip_address_server/nagios
+Nagios Web Frontend Username        : nagiosadmin
+Nagios Web Frontend Password        : ***********
+Nagios Installation Directory       : /usr/local/nagios/
+Nagios Main Configuration File      : /usr/local/nagios/etc/nagios.cfg
+Nagios Object configuration Files   : /usr/local/nagios/etc/objects/
+Nagios Apache Configuration File    : /etc/httpd/conf.d/nagios.conf  (For Redhat Based: CentOS, AlmaLinux, RockyLinux, Fedora)
+                                    : /etc/apache2/sites-enabled/nagios.conf  (For Ubuntu/Debian)                                                                                                  : /etc/apache2/vhosts.d/nagios.conf (For OpenSUSE)
+
+Note
+If you can't display the Nagios application in your browser,
+it means that the firewall and/or selinux application is still enable in your server.
+
+ ********                   Please change Contacts in                 ********
+ ********          /usr/local/nagios/etc/objects/contacts.cfg         ********
+ ******** Check Nagios installation Log File in /tmp/nagios_setup.log ********
+
+      ********** Thank You For Using All in One Nagios Script **********
+                   ******** sysnotecom@gmail.com ********
+                          ****** Thank You ******
+
+
+
+====================================================================================
+
+
+
+Nagios-QL:
+Reference Link: https://sysadminote.com/how-to-install-nagiosql-to-manage-nagios/#
+
+
+
+
+
+How to Install NagiosQL to Manage Nagios?
+by sysnote11 August 202114 Comments
+install nagiosql
+Besides using the NConf application that we explained in the previous article to manage Nagios, there is another alternative application that we can use to manage Nagios, namely using the NagiosQL application.
+
+ 
+
+Problem
+
+How to install NagiosQL application in CentOS, Ubuntu/Debian, and OpenSUSE?
+
+ 
+
+Solution
+
+NagiosQL is a professional, web-based configuration tool for Nagios 2.x/3.x and other Nagios-based monitoring tools. It is designed for large enterprise requirements as well as small environments and any Nagios functionalities are supported. In this article, we will try to install NagiosQL on CentOS, Ubuntu/Debian, and OpenSUSE.
+
+ 
+
+Here are the steps to install NagiosQL application in CentOS, Ubuntu/Debian, and OpenSUSE:
+
+ 
+
+CentOS
+Ubuntu/Debian
+OpenSUSE
+1. Install the packages
+
+Type the commands below to install the packages:
+
+apt update
+apt-get install -y php libmcrypt-dev php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-pear gcc php-dev php zlib1g-dev libssh2-1 libssh2-1-dev php-ssh2  mariadb-server build-essential
+pear channel-update pear.php.net
+pear install HTML_Template_IT
+ 
+
+ 
+
+2. Install PHP Modules
+
+For Ubuntu/Debian, just type the below command to install PHP modules:
+
+pecl install mcrypt
+Press Enter to answer all the remaining questions.
+
+ 
+
+ 
+
+3. Configure PHP
+
+Type the below commands to configure PHP:
+
+echo "extension=mcrypt.so" >> /etc/php/*/apache2/php.ini
+echo "date.timezone=Asia/Singapore"  >> /etc/php/*/apache2/php.ini
+systemctl restart apache2
+ 
+
+ 
+
+4. Configure the database
+
+Configure the MySQL/MariaDB database by typing the below commands in the MySQL prompt:
+
+GRANT ALL PRIVILEGES ON *.* TO `root`@`%` IDENTIFIED BY 'your-root-password';
+FLUSH PRIVILEGES;
+ 
+
+ 
+
+5. Download NagiosQL
+
+Download the last release of the NagiosQL application, as of this writing, has reached version 3.4.1 and configure it with type the commands below:
+
+cd /tmp/
+wget -O nagiosql-3.4.1.tar.gz https://sourceforge.net/projects/nagiosql/files/nagiosql/NagiosQL%203.4.1/nagiosql-3.4.1-git2020-01-19.tar.gz/download
+tar -zxvf nagiosql-3.4.1.tar.gz
+cp -vprf nagiosql-3.4.1/ /usr/local/nagios/share/nagiosql
+ 
+
+ 
+
+6. Configure files and folders
+
+Type the below commands to configure files and folders:
+
+mkdir /usr/local/nagios/etc/nagiosql;
+mkdir /usr/local/nagios/etc/nagiosql/hosts;
+mkdir /usr/local/nagios/etc/nagiosql/services;
+mkdir /usr/local/nagios/etc/nagiosql/backup;
+mkdir /usr/local/nagios/etc/nagiosql/backup/hosts;
+mkdir /usr/local/nagios/etc/nagiosql/backup/services;
+
+chown nagios:nagcmd /usr/local/nagios/var/rw 
+chown nagios:nagcmd /usr/local/nagios/var/rw/nagios.cmd
+chown -R nagios.www-data /usr/local/nagios/etc/nagiosql;
+chown nagios.www-data /usr/local/nagios/etc/nagios.cfg;
+chown nagios.www-data /usr/local/nagios/etc/cgi.cfg;
+chown nagios.www-data /usr/local/nagios/etc/resource.cfg;
+chown nagios.www-data /usr/local/nagios/var/spool/checkresults;
+chown nagios:www-data /usr/local/nagios/bin/nagios;
+
+
+chmod 775 /usr/local/nagios/etc/
+chmod 777 /usr/local/nagios/bin/nagios
+chmod -R 777 /usr/local/nagios/share/nagiosql/config
+chmod -R 6775 /usr/local/nagios/etc/nagiosql;
+chmod 660 /usr/local/nagios/var/rw/nagios.cmd;
+chmod 775 /usr/local/nagios/etc/;
+chmod 664 /usr/local/nagios/etc/nagios.cfg;
+chmod 664 /usr/local/nagios/etc/cgi.cfg;
+chmod g+x /usr/local/nagios/var/rw/;
+
+chgrp www-data /usr/local/nagios/etc/;
+chgrp www-data /usr/local/nagios/etc/nagios.cfg;
+chgrp www-data /usr/local/nagios/etc/cgi.cfg;
+
+sed -i 's/^cfg/#cfg/' /usr/local/nagios/etc/nagios.cfg
+echo "" >> /usr/local/nagios/etc/nagios.cfg 
+echo "cfg_dir=/usr/local/nagios/etc/nagiosql" >> /usr/local/nagios/etc/nagios.cfg
+ 
+
+ 
+
+7. Configure NagiosQL in the browser
+
+Next, configure the application in the browser by typing the command in the browser:
+
+http://your_ip_server/nagios/nagiosql
+ 
+
+If the browser asks us to insert the password, insert your Nagios password. After you insert the password, then there will be a display like this:
+
