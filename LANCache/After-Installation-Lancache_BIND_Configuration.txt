@@ -1,0 +1,262 @@
+root@1d1a5437eca0:/scripts# cat /etc/bind/named.conf.options
+options {
+        directory "/var/cache/bind";
+        dnssec-validation no;
+        auth-nxdomain no;    # conform to RFC1035
+        allow-recursion { any; };
+        allow-query { any; };
+        allow-query-cache { any; };
+        listen-on { any; };
+        listen-on-v6 { any; };
+        minimal-responses yes;
+        max-cache-ttl 10800;
+        max-ncache-ttl 10800;
+        #forward only;
+
+        # Permit RFC1918 PTR lookups to be recursed upstream
+        empty-zones-enable no;
+                response-policy { zone "rpz"; };
+                rrset-order { order cyclic; };
+        #forwarders { 9.9.9.9; };
+};
+
+logging {
+    channel default_file {
+        file "/var/log/named/default.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel general_file {
+        file "/var/log/named/general.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel database_file {
+        file "/var/log/named/database.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel security_file {
+        file "/var/log/named/security.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel config_file {
+        file "/var/log/named/config.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel resolver_file {
+        file "/var/log/named/resolver.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel xfer-in_file {
+        file "/var/log/named/xfer-in.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel xfer-out_file {
+        file "/var/log/named/xfer-out.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel notify_file {
+        file "/var/log/named/notify.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel client_file {
+        file "/var/log/named/client.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel unmatched_file {
+        file "/var/log/named/unmatched.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel queries_file {
+        file "/var/log/named/queries.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel network_file {
+        file "/var/log/named/network.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel update_file {
+        file "/var/log/named/update.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel dispatch_file {
+        file "/var/log/named/dispatch.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel dnssec_file {
+        file "/var/log/named/dnssec.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel lame-servers_file {
+        file "/var/log/named/lame-servers.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+
+    category default { default_file; };
+    category general { general_file; };
+    category database { database_file; };
+    category security { security_file; };
+    category config { config_file; };
+    category resolver { resolver_file; };
+    category xfer-in { xfer-in_file; };
+    category xfer-out { xfer-out_file; };
+    category notify { notify_file; };
+    category client { client_file; };
+    category unmatched { unmatched_file; };
+    category queries { queries_file; };
+    category network { network_file; };
+    category update { update_file; };
+    category dispatch { dispatch_file; };
+    category dnssec { dnssec_file; };
+    category lame-servers { lame-servers_file; };
+};
+
+zone "reddit.com." {
+    type forward;
+    forward only;
+    forwarders {
+       9.9.9.9; 8.8.8.8; 1.1.1.1;
+    };
+};
+
+zone "fastly.net." {
+    type forward;
+    forward only;
+    forwarders {
+       9.9.9.9; 8.8.8.8; 1.1.1.1;
+    };
+
+
+};
+zone "lc.dotinternetbd.com" {
+    type master;
+    file "/etc/bind/zones/db.lc.dotinternetbd.com"; # zone file path
+};
+
+zone "172.16.172.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.172.16.172";  # 172.16.0.0/16 subnet
+};
+zone "purechemicals.com.bd." {
+    type forward;
+    forward only;
+    forwarders {
+       9.9.9.9; 8.8.8.8; 1.1.1.1;
+};
+};
+
+zone "reddit.map.fastly.net." {
+    type forward;
+    forward only;
+    forwarders {
+       9.9.9.9; 8.8.8.8; 1.1.1.1;
+};
+};
+
+zone "akamaiedge.net." {
+    type forward;
+    forward only;
+    forwarders {
+       9.9.9.9; 8.8.8.8; 1.1.1.1;
+};
+};
+
+zone "akamai.net." {
+    type forward;
+    forward only;
+    forwarders {
+       9.9.9.9; 8.8.8.8; 1.1.1.1;
+};
+};
+
+zone "adobestock.com." {
+    type forward;
+    forward only;
+    forwarders {
+       9.9.9.9; 8.8.8.8; 1.1.1.1;
+};
+};
+
+zone "amazon.com." {
+    type forward;
+    forward only;
+    forwarders {
+       9.9.9.9; 8.8.8.8; 1.1.1.1;
+};
+};
+
+
+
+
+
+
+==================================
+
+
+root@1d1a5437eca0:/scripts# cat /etc/bind/zones/db.lc.dotinternetbd.com
+
+
+
+
+
+$TTL    604800
+@       IN      SOA     ns1.lc.dotinternetbd.com. admin.lc.dotinternetbd.com. (
+                         2022102601     ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+; name servers - NS records
+     IN      NS      ns1.lc.dotinternetbd.com.
+     IN      NS      ns2.lc.dotinternetbd.com.
+
+; name servers - A records
+ns1                             IN      A       172.16.172.10
+ns2                             IN      A       172.16.172.14
+
+; 10.128.0.0/16 - A records
+;host1.nyc3.example.com.        IN      A      10.128.100.101
+;host2.nyc3.example.com.        IN      A      10.128.200.102
+
+
+
+================================================================
+
+root@1d1a5437eca0:/scripts# cat /etc/bind/zones/db.172.16.172
+
+
+
+$TTL    604800
+@       IN      SOA     lc.dotinternetbd.com. admin.lc.dotinternetbd.com. (
+                        2022102601         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+; name servers
+      IN      NS      ns1.lc.dotinternetbd.com.
+      IN      NS      ns2.lc.dotinternetbd.com.
+
+; PTR Records
+10              IN      PTR     ns1.lc.dotinternetbd.com.    ; 172.16.172.10
+14              IN      PTR     ns2.lc.dotinternetbd.com.    ; 172.16.172.14
+;101.100        IN      PTR     host1.nyc3.example.com.  ; 10.128.100.101
+;102.200        IN      PTR     host2.nyc3.example.com.  ; 10.128.200.102
+
+

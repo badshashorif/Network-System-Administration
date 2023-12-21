@@ -1,0 +1,76 @@
+			LAN Cache Server Installation:
+
+https://github.com/rkarimone/wn2022Q3/blob/main/005-Lancache-Storage-Config.sh
+
+Docker_Installation: 
+https://computingforgeeks.com/how-to-run-graylog-server-in-docker-containers/?expand_article=1
+
+# apt install curl -y
+
+# curl -sSL https://get.docker.com/ | sh
+
+# systemctl status docker.service
+
+# apt install docker-compose -y
+
+# mkdir /data
+
+# cd /data
+
+
+# docker volume create portainer_data
+
+# docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+
+
+
+# apt install git
+
+# git clone https://github.com/lancachenet/docker-compose/ lancache
+
+# cd lancache
+
+# nano .env
+
+USE_GENERIC_CACHE=true
+LANCACHE_IP=172.16.172.14
+DNS_BIND_IP=172.16.172.14
+UPSTREAM_DNS=8.8.8.8; 9.9.9.9; 1.1.1.1
+CACHE_ROOT=./lancache
+CACHE_MEM_SIZE=65536m
+CACHE_DISK_SIZE=4500g
+CACHE_SLICE_SIZE=4m
+CACHE_MAX_AGE=120d
+TZ=Asia/Dhaka
+
+
+# nano docker-compose.yml
+
+
+
+version: '2'
+services:
+  dns:
+    image: lancachenet/lancache-dns:latest
+    env_file: .env
+    restart: always
+    ports:
+      - ${DNS_BIND_IP}:53:53/udp
+      - ${DNS_BIND_IP}:53:53/tcp
+  monolithic:
+    image: lancachenet/monolithic:latest
+    env_file: .env
+    restart: always
+    ports:
+      - 172.16.172.14:80:80/tcp
+      - 172.16.172.14:443:443/tcp
+    volumes:
+      - ${CACHE_ROOT}/cache:/data/cache
+      - ${CACHE_ROOT}/logs:/data/logs
+      - ${CACHE_ROOT}/custom.db:/etc/bind/cache/custom.db
+
+
+
+# docker-compose up -d 
+
+# docker stats

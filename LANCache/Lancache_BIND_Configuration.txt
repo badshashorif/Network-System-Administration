@@ -1,0 +1,320 @@
+LAN_Cache_Bind
+=================
+/etc/bind/named.conf.options
+
+
+
+root@1d1a5437eca0:/scripts# cat /etc/bind/named.conf.options
+options {
+        directory "/var/cache/bind";
+        dnssec-validation no;
+        auth-nxdomain no;    # conform to RFC1035
+        allow-recursion { any; };
+        allow-query { any; };
+        allow-query-cache { any; };
+        listen-on { any; };
+        listen-on-v6 { any; };
+        minimal-responses yes;
+        #max-cache-ttl 0;
+        #max-ncache-ttl 0;
+        #forward only;
+
+        # Permit RFC1918 PTR lookups to be recursed upstream
+        empty-zones-enable no;
+                response-policy { zone "rpz"; };
+                rrset-order { order cyclic; };
+        #forwarders { 9.9.9.9; };
+};
+
+logging {
+    channel default_file {
+        file "/var/log/named/default.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel general_file {
+        file "/var/log/named/general.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel database_file {
+        file "/var/log/named/database.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel security_file {
+        file "/var/log/named/security.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel config_file {
+        file "/var/log/named/config.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel resolver_file {
+        file "/var/log/named/resolver.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel xfer-in_file {
+        file "/var/log/named/xfer-in.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel xfer-out_file {
+        file "/var/log/named/xfer-out.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel notify_file {
+        file "/var/log/named/notify.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel client_file {
+        file "/var/log/named/client.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel unmatched_file {
+        file "/var/log/named/unmatched.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel queries_file {
+        file "/var/log/named/queries.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel network_file {
+        file "/var/log/named/network.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel update_file {
+        file "/var/log/named/update.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel dispatch_file {
+        file "/var/log/named/dispatch.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel dnssec_file {
+        file "/var/log/named/dnssec.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+    channel lame-servers_file {
+        file "/var/log/named/lame-servers.log" versions 3 size 5m;
+        severity dynamic;
+        print-time yes;
+    };
+
+    category default { default_file; };
+    category general { general_file; };
+    category database { database_file; };
+    category security { security_file; };
+    category config { config_file; };
+    category resolver { resolver_file; };
+    category xfer-in { xfer-in_file; };
+    category xfer-out { xfer-out_file; };
+    category notify { notify_file; };
+    category client { client_file; };
+    category unmatched { unmatched_file; };
+    category queries { queries_file; };
+    category network { network_file; };
+    category update { update_file; };
+    category dispatch { dispatch_file; };
+    category dnssec { dnssec_file; };
+    category lame-servers { lame-servers_file; };
+};
+
+zone "reddit.com." {
+    type forward;
+    forward only;
+    forwarders {
+       8.8.8.8;
+    };
+};
+
+zone "fastly.net." {
+    type forward;
+    forward only;
+    forwarders {
+       8.8.8.8;
+    };
+};
+
+zone "lc.dotinternetbd.com" {
+    type master;
+    file "/etc/bind/zones/db.lc.dotinternetbd.com"; # zone file path
+};
+
+zone "172.16.172.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.172.16.172";  # 172.16.0.0/16 subnet
+};
+
+
+============================================================================
+db.lc.dotinternetbd.com
+============================
+
+
+root@1d1a5437eca0:/etc/bind/zones# cat db.
+db.172.16.172            db.lc.dotinternetbd.com
+root@1d1a5437eca0:/etc/bind/zones# cat db.lc.dotinternetbd.com
+$TTL    604800
+@       IN      SOA     ns1.lc.dotinternetbd.com. admin.lc.dotinternetbd.com. (
+                         2022102601     ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+; name servers - NS records
+     IN      NS      ns1.lc.dotinternetbd.com.
+     IN      NS      ns2.lc.dotinternetbd.com.
+
+; name servers - A records
+ns1                             IN      A       172.16.172.10
+ns2                             IN      A       172.16.172.14
+
+; 10.128.0.0/16 - A records
+;host1.nyc3.example.com.        IN      A      10.128.100.101
+;host2.nyc3.example.com.        IN      A      10.128.200.102
+
+
+
+
+cat db.172.16.172
+=========================
+
+root@1d1a5437eca0:/etc/bind/zones# cat db.172.16.172
+$TTL    604800
+@       IN      SOA     lc.dotinternetbd.com. admin.lc.dotinternetbd.com. (
+                        2022102601         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+; name servers
+      IN      NS      ns1.lc.dotinternetbd.com.
+      IN      NS      ns2.lc.dotinternetbd.com.
+
+; PTR Records
+10              IN      PTR     ns1.lc.dotinternetbd.com.    ; 172.16.172.10
+14              IN      PTR     ns2.lc.dotinternetbd.com.    ; 172.16.172.14
+;101.100        IN      PTR     host1.nyc3.example.com.  ; 10.128.100.101
+;102.200        IN      PTR     host2.nyc3.example.com.  ; 10.128.200.102
+
+
+
+
+Command Line Reference:
+=============================
+
+root@25a1a3a7f04a:/scripts# history
+    1  cd /etc/bind
+    2  ls -l
+    3  nano named.conf.local
+    4  ls -l
+    5  cd
+    6  mkdir /etc/bind/zones
+    7  cd /etc/bind/zones
+    8  cp ../db.local ./db.lc.dotinternetbd.com
+    9  nano db.lc.dotinternetbd.com
+   10  cd /etc/bind/zones
+   11  cp ../db.127 ./db.172.16
+   12  nano db.172.16
+   13  named-checkconf
+   14  named-checkzone db.172.16
+   15  /etc/init.d/bind9 restart
+   16  dig -x
+   17  cd
+   18  dig -x
+   19  dig
+   20  cd /etc/bind
+   21  ls -l
+   22  nana named.conf.local
+   23  nano named.conf.local
+   24  nano named.conf.options
+   25  /etc/init.d/bind9 restart
+   26  nano named.conf.options
+   27  /etc/init.d/bind9 restart
+   28  dig
+   29  di g-z
+   30  dig -x
+   31  dig ns2.lc.dotinternetbd.com
+   32  nano /etc/hostname
+   33  dig 172.16.172.14
+   34  dig ns1.lc.dotinternetbd.com
+   35  nano /etc/bind/named.conf.options
+   36  /etc/init.d/bind9 restart
+   37  nano /etc/bind/named.conf.options
+   38  ip ad
+   39  cd
+   40  dig
+   41  cd /etc/bind
+   42  cd zones
+   43  ls -l
+   44  nano db.172.16
+   45  /etc/init.d/bind9 restart
+   46  nano db.lc.dotinternetbd.com
+   47  /etc/init.d/bind9 restart
+   48  nano /etc/bind/named.conf.options
+   49  ls -l
+   50  cp db.172.16 db.172.16.172
+   51  nano db.172.16.172
+   52  /etc/init.d/bind9 restart
+   53  cd ..
+   54  ls -l
+   55  nano named.conf.local
+   56  /etc/init.d/bind9 restart
+   57  clear
+   58  cd
+   59  clear
+   60  cd /etc/bind
+   61  ls -l
+   62  cd zones
+   63  ls -l
+   64  rm db.172.16
+   65  ls -l
+   66  nano db.172.16.172
+   67  nano db.lc.dotinternetbd.com
+   68  cd /etc/bind/named.conf.options
+   69  nano /etc/bind/named.conf.options
+   70  clear
+   71  cd
+   72  clear
+   73  exit
+   74  ll
+   75  history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

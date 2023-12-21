@@ -1,0 +1,948 @@
+truncate -s 0 /var/lib/docker/containers/*/*-json.log
+
+root@lancache:~# history
+    1  clear
+    2  cd
+    3  apt-get update
+    4  apt-get install
+    5  nano /etc/ssh/sshd_config
+    6  /etc/init.d/ssh restart
+    7  clear
+    8  dig www.google.com
+    9  clear
+   10  fdisk -l
+   11  apt-get upgrade
+   12  apt-get install
+   13  reboot
+   14  history
+   15  fdisk -l
+   16  sudo apt install -y ifupdown vim net-tools
+   17  sudo apt autoremove -y --purge netplan.io resolvconf
+   18  rm -fr /etc/netplan
+   19  ifconfig -a
+   20  ip -br a
+   21  ethtool enp129s0f0
+   22  sudo vim /etc/default/grub
+   23  sudo vim /etc/network/interfaces
+   24  ip route show
+   25  sudo vim /etc/network/interfaces
+   26  apt install --install-recommends linux-generic-hwe-20.04
+   27  sudo systemctl stop systemd-resolved
+   28  sudo systemctl disable systemd-resolved.service
+   29  rm -fr /etc/resolv.conf
+   30  touch /etc/resolv.conf
+   31  echo "nameserver 9.9.9.9" > /etc/resolv.conf
+   32  echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+   33  echo "nameserver 1.0.0.3" >> /etc/resolv.conf
+   34  sudo vim /etc/security/limits.conf
+   35  sudo vim /etc/sysctl.conf
+   36  sudo sysctl -p
+   37  apt install python3-pip
+   38  pip3 install bpytop --upgrade
+   39  bpytop
+   40  reboot
+   41  cat  /etc/os-release
+   42  vim /etc/apt/sources.list
+   43  apt update
+   44  apt upgrade -y
+   45  uname -a
+   46  ip -br a
+   47  vim /etc/ssh/sshd_config
+   48  vim .ssh/authorized_keys
+   49  rm -fr /etc/update-motd.d/*
+   50  date
+   51  dpkg-reconfigure tzdata
+   52  date
+   53  sudo add-apt-repository ppa:jonathonf/zfs
+   54  sudo apt update
+   55  sudo apt install zfsutils-linux gdisk
+   56  fdisk -l |grep sd* |grep TiB
+   57  lsblk
+   58  fdisk -l |grep sd* |grep TiB
+   59  ls -la /dev/disk/by-id/
+   60  ls -la /dev/disk/by-id/ |grep ata
+   61  ls -la /dev/disk/by-id/ |grep scsi
+   62  fdisk -l |grep sd* |grep TiB
+   63  ls -la /dev/disk/by-id/ |grep scsi
+   64  history
+   65  fdisk -l |grep sd* |grep TiB
+   66  lsblk
+   67  ls -la /dev/disk/by-id/ |grep scsi
+   68  sgdisk --zap-all /dev/sda
+   69  sgdisk --zap-all /dev/sdb
+   70  sgdisk --zap-all /dev/sdc
+   71  sgdisk --zap-all /dev/sdd
+   72  sgdisk --zap-all /dev/sde
+   73  sgdisk --zap-all /dev/sdf
+   74  sgdisk --zap-all /dev/sdg
+   75  sgdisk --zap-all /dev/sdh
+   76  ls -la /dev/disk/by-id/ |grep scsi
+   77  apt-get install lsscsi hdparm smartmontools lshw inxi
+   78  lsscsi -s
+   79  smartctl -d megaraid,0 -a /dev/sda |grep Serial
+   80  smartctl -d megaraid,1 -a /dev/sda |grep Serial
+   81  smartctl -d megaraid,2 -a /dev/sda |grep Serial
+   82  smartctl -d megaraid,3 -a /dev/sda |grep Serial
+   83  smartctl -d megaraid,4 -a /dev/sda |grep Serial
+   84  smartctl -d megaraid,5 -a /dev/sda |grep Serial
+   85  smartctl -d megaraid,6 -a /dev/sda |grep Serial
+   86  smartctl -d megaraid,7 -a /dev/sda |grep Serial
+   87  smartctl -d megaraid,8 -a /dev/sda |grep Serial
+   88  smartctl -d megaraid,9 -a /dev/sda |grep Serial
+   89  smartctl -d megaraid,10 -a /dev/sda |grep Serial
+   90  ls -la /dev/disk/by-id/ |grep scsi
+   91  ls -la /dev/disk/by-id/ |grep ata
+   92  sudo zpool create -o ashift=12 -f volume1 raidz scsi-35001173100999a64 scsi-35001173100a56e24 scsi-35002538c5037d7b9 scsi-35002538c5037de04 scsi-35002538c5037df6a scsi-35002538c5037e01d scsi-35002538c5037eb4d scsi-35002538c5037f032
+   93  zpool status
+   94  zpool list
+   95  zfs list
+   96  sudo zfs set sync=disabled volume1
+   97  sudo zfs set compress=lz4 volume1
+   98  sudo zfs set atime=off volume1
+   99  sudo zfs set xattr=sa volume1
+  100  sudo zfs set relatime=off volume1
+  101  sudo zfs set acltype=posixacl volume1
+  102  htop
+  103  bc
+  104  echo "options zfs zfs_arc_max=51539607552" > /etc/modprobe.d/zfs.conf
+  105  apt-mark hold linux-generic linux-image-generic linux-headers-generic
+  106  dpkg -l |grep zfs
+  107  apt-mark hold libzfs4linux zfs-zed zfsutils-linux
+  108  htop
+  109  sudo swapoff /swapfile
+  110  sudo swapoff /swap.img
+  111  sudo rm -fr /swap.img
+  112  sudo fallocate -l 32G /swap.img
+  113  sudo chmod 0600 /swap.img
+  114  sudo mkswap /swap.img
+  115  sudo swapon /swap.img
+  116  htop
+  117  zfs list
+  118  zpool status
+  119  ulimit -n
+  120  zfs list
+  121  reboot
+  122  zpool statuxz
+  123  zpool status
+  124  zfs list
+  125  htop
+  126  echo "performance" | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+  127  htop
+  128  bpytop
+  129  history
+  130  root@lancache:~# history
+  131  history
+  132  exit
+  133  history
+  134  lsblk
+  135  history
+  136  fdisk -l
+  137  lsblk
+  138  fdisk -l
+  139  apt-get update
+  140  apt-get install
+  141  cat /etc/ssh/sshd_config
+  142  cat /etc/network/interfaces
+  143  ip -br a
+  144  ip link show
+  145  ifconfig -a
+  146  ip addr show
+  147  ip route show
+  148  ip -br a
+  149  ethtool enp129s0f0
+  150  systemctl status system-resolved
+  151  cat /etc/resolv.conf
+  152  cat /etc/security/limits.conf
+  153  cat /etc/security/limits.conf
+  154  cat /etc/sysctl.conf
+  155  bpytop
+  156  cat  /etc/os-release
+  157  cat /etc/apt/sources.list
+  158  uname -a
+  159  zfs pool
+  160  zfs list
+  161  zpool status
+  162  htop
+  163  echo "performance" | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+  164  zpool status
+  165  zfs list
+  166  clear
+  167  df -h
+  168  cd /volume1/
+  169  ls -l
+  170  df -h
+  171  clear
+  172  cd
+  173  clear
+  174  fdisk -l
+  175  fdisk
+  176  clear
+  177  htop
+  178  clear
+  179  nano /etc/network/interfaces
+  180  clear
+  181  history
+  182  zpool status
+  183  dig www.google.com
+  184  dig reddit.com
+  185  netstat -ntlpu
+  186  dig www.google.com
+  187  dig www.facebook.com
+  188  uptime
+  189  htop
+  190  bpytop
+  191  cat /proc/cpuinfo
+  192  apt install glances
+  193  glances
+  194  zfs list
+  195  w
+  196  uptime
+  197  zfs list
+  198  zpool status
+  199  exit
+  200  zfs list
+  201  mkdir /volume1/lancache
+  202  cd /volume1/lancache
+  203  ls
+  204  sudo apt update
+  205  sudo apt full-upgrade
+  206  sudo apt install curl
+  207  apt-get remove docker docker.io containerd runc
+  208  apt-get install  apt-transport-https ca-certificates curl gnupg lsb-release
+  209  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  210  echo   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  211  sudo apt-get update
+  212  sudo apt -y install docker-ce docker-ce-cli containerd.io
+  213  sudo docker version
+  214  sudo curl -L "https://github.com/docker/compose/releases/download/v2.12.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  215  sudo curl -L "https://github.com/docker/compose/releases/download/v2.12.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+  216  sudo chmod +x /usr/local/bin/docker-compose
+  217  sudo chmod +x /usr/bin/docker-compose
+  218  sudo docker-compose --version
+  219  sudo systemctl status docker
+  220  sudo git clone https://github.com/lancachenet/docker-compose lancache
+  221  ls
+  222  cd lancache/
+  223  ls
+  224  vim .env
+  225  ls
+  226  vim docker-compose.yml
+  227  sudo docker-compose up -d
+  228  ip -br a
+  229  ifconfig enp129s0f0:0 172.16.172.10/30
+  230  ip -br a
+  231  vim /etc/network/interfaces
+  232  sudo docker-compose up -d
+  233  docker ps
+  234  docker ps -a
+  235  docker exec -it lancache_dns_1 bash
+  236  docker exec -it lancache-dns-1 bash
+  237  cd
+  238  dig @172.16.172.10 google.com
+  239  vim /etc/resolv.conf
+  240  dig @172.16.172.10 google.com
+  241  nslookup google.com
+  242  clear
+  243  docker ps
+  244  docker exec 1d1a5437eca0 -t
+  245  docker exec -t 1d1a5437eca0
+  246  docker exec 1d1a5437eca0 -t bash
+  247  docker exec -t 1d1a5437eca0 bash
+  248  clear
+  249  docker exec -t 1d1a5437eca0 bash
+  250  clear
+  251  mtr www.google.com
+  252  clear
+  253  dig www.google.com
+  254  clear
+  255  dig @172.16.172.10
+  256  dig @172.16.172.10 google.com
+  257  clear
+  258  dig @172.16.172.10 www.google.com
+  259  dig @172.16.172.10 wwe.com
+  260  clear
+  261  ip add
+  262  clear
+  263  dig www.msn.com
+  264  dig www.msn.com +trace
+  265  ping 192.31.80.30
+  266  dig www.msn.com +trace
+  267  ping 192.48.79.30
+  268  mtr 192.48.79.30
+  269  dig +trace www.msn.com
+  270  dig www.msn.com
+  271  dig +trace www.msn.com
+  272  dig www.msn.com
+  273  dig www.facebook.com
+  274  dig www.google.com
+  275  dig @172.16.172.10 www.google.com
+  276  dig +trace www.msn.com
+  277  dig +trace wwe.com
+  278  ping 52.2.237.77
+  279  clear
+  280  dig www.msn.com
+  281  clear
+  282  google.com
+  283  dig +trace www.google.com
+  284  dig www.msn.com +trace
+  285  dig +trace www.google.com
+  286  ping 192.54.112.30
+  287  clear
+  288  dig @8.8.8.8 www.msn.com
+  289  dig +trace @8.8.8.8 www.msn.com
+  290  docker ps
+  291  docker exec -t 1d1a5437eca0 bash
+  292  clear
+  293  docker exec -t 1d1a5437eca0 bash
+  294  clear
+  295  cat /etc/resolv.conf
+  296  dig @172.16.172.10 google.com
+  297  dig @172.16.172.10 www.google.com
+  298  dig @172.16.172.10 cnn.com
+  299  dig @172.16.172.10 www.msn.com
+  300  dig +trace www.msn.com
+  301  docker exec -it lancache-dns-1 bash
+  302  dig +trace www.msn.com
+  303  cat /etc/resolv.conf
+  304  dig +trace www.msn.com
+  305  docker exec -it lancache-dns-1 bash
+  306  dig +trace www.msn.com
+  307  docker ps
+  308  docker exec -t 1d1a5437eca0 bash
+  309  docker exec -t lancache-dns-1 bash
+  310  docker exec -it lancache-dns-1 bash
+  311  clear
+  312  ping 1.1.1.1
+  313  ping 9.9.9.9
+  314  docker exec -it lancache-dns-1 bash
+  315  clear
+  316  dig www.google.com
+  317  dig @172.16.172.10 www.google.com
+  318  clear
+  319  dig www.google.com
+  320  clear
+  321  drf -h
+  322  celar
+  323  df -h
+  324  docker ps
+  325  reboot
+  326  df -h
+  327  cd /volume1/
+  328  ls -l
+  329  cd
+  330  clear
+  331  docker ps
+  332  clear
+  333  docker ps
+  334  dig
+  335  ip add
+  336  ping 172.16.172.9
+  337  clear
+  338  dig
+  339  clear
+  340  exit
+  341  passwd
+  342  clear
+  343  htop
+  344  byobu
+  345  clear
+  346  bpytop
+  347  glances
+  348  clear
+  349  bpytop
+  350  clear
+  351  exirt
+  352  exit
+  353  htop
+  354  bpytop
+  355  glances
+  356  dig www.google.com
+  357  dig www.facebbok.com
+  358  dig www.msn.com
+  359  history
+  360  bpytop
+  361  exit
+  362  clear
+  363  dig www.google.com
+  364  clear
+  365  docker ps
+  366  docker exec -it 1d1a5437eca0
+  367  docker exec -it 1d1a5437eca0 bash
+  368  exit
+  369  df -h
+  370  cd /volume1/
+  371  ls -l
+  372  cd lancache/
+  373  ls -l
+  374  cd lancache/
+  375  ls -l
+  376  cd lmcache/
+  377  ls -l
+  378  cd cache/
+  379  ls -l
+  380  cd ..
+  381  ls -l
+  382  cd logs/
+  383  ls -l
+  384  tail -f access.log
+  385  cd ..
+  386  ls -l
+  387  cd logs/
+  388  ls -l
+  389  tail -f error.log
+  390  clear
+  391  byobu
+  392  clear
+  393  cd
+  394  history
+  395  bpytop
+  396  clear
+  397  glances
+  398  clear
+  399  cd
+  400  dig
+  401  clear
+  402  bpt
+  403  bpytop
+  404  clear
+  405  df -h
+  406  docker ps
+  407  cat /etc/network/interfaces
+  408  cat /etc/resolv.conf
+  409  htop
+  410  bpytop
+  411  exit
+  412  ll
+  413  cd /volume1/lancache/lancache/
+  414  ll
+  415  cat docker-compose.yml
+  416  cd /volume1/lancache/lancache/
+  417  cat .env
+  418  zfs list
+  419  zpool status
+  420  lsblk
+  421  zpool list
+  422  zfs list
+  423  cat /etc/network/interfaces
+  424  history
+  425  docker exec -it lancache-dns-1 bash
+  426  cat /etc/resolv.conf
+  427  docker exec -it lancache-dns-1 bash
+  428  ssh noc-shahadat@59.153.100.1
+  429  celar
+  430  clear
+  431  docker ps
+  432  bpytop
+  433  clear
+  434  df -h
+  435  docker ps
+  436  who
+  437  whoami
+  438  who
+  439  docker ps
+  440  dockerps
+  441  docker ps
+  442  clear
+  443  docker ps
+  444  docker volume create portainer_data
+  445  docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+  446  docker ps
+  447  docker run --name=ntp --restart=always --detach --publish=123:123/udp --read-only --tmpfs=/etc/chrony:rw,mode=1750 --tmpfs=/run/chrony:rw,mode=1750 --tmpfs=/var/lib/chrony:rw,mode=1750 --env=NTP_SERVERS=bd.pool.ntp.org cturra/ntp
+  448  ntpdate -q 172.16.172.10
+  449  apt install ntpdate -y
+  450  ntpdate -q 172.16.172.10
+  451  docker ps
+  452  docker run -d -p 172.16.172.10:8000:8000 -p 172.16.172.10:9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+  453  docker run -d -p 172.16.172.10:8000:8000 -p 172.16.172.10:9443:9443 portainer/portainer-ce:latest
+  454  docker ps
+  455  docker kill 874d14102676
+  456  docker rm 874d14102676
+  457  docker run -d -p 172.16.172.10:8000:8000 -p 172.16.172.10:9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+  458  docker ps
+  459  ntpdate -q 172.16.172.10
+  460  docker ps
+  461  ntpdate -q 172.16.172.10
+  462  dig www.google.com 172.16.100.10
+  463  dig  @172.16.100.10 www.google.com
+  464  history
+  465  dig @172.16.172.10 www.google.com
+  466  ping 8.8.8.8
+  467  cat /etc/resolv.conf
+  468  ntpdate -q 172.16.172.14
+  469  ping 8.8.8.8
+  470  docker ps
+  471  docker stop ffe0f2b39aac
+  472  docker ps
+  473  dig
+  474  bpytop
+  475  df -h
+  476  clear
+  477  dig www.google.com
+  478  dig www.msn.com
+  479  docker ps
+  480  docker exec -it 1d1a5437eca0 bash
+  481  clear
+  482  dig
+  483  docker ps
+  484  dig www.youtube.com
+  485  dig www.reddit.com
+  486  docker exec -it 1d1a5437eca0 bash
+  487  clear
+  488  dig
+  489  ping 8.8.8.8
+  490  ntpdate -q 172.16.172.10
+  491  ntpdate -q 172.16.172.14
+  492  docker exec ntp chronyc sources
+  493  docker exec ntp chronyc sources
+  494  docker ps
+  495  dig +trace 172.16.172.14 www.facebook.com
+  496  docker ps
+  497  docker exec -it 1d1a5437eca0 bash
+  498  docker ps
+  499  docker exec -it 1d1a5437eca0 bash
+  500  exit
+  501  docker exec -it 1d1a5437eca0 bash
+  502  docker ps
+  503  docker run init 1d1a5437eca0 bash
+  504  history
+  505  docker exec -it 1d1a5437eca0 bash
+  506  dig @172.16.172.10 www.msn.com
+  507  dig @172.16.172.10 www.bbc.com
+  508  ping 8.8.8.8
+  509  dig  @172.16.100.10 www.google.com
+  510  docker ps
+  511  dig  @172.16.100.10 www.google.com
+  512  nslookup
+  513  dig  @172.16.100.10 www.google.com
+  514  dig +trace 172.16.172.14 www.facebook.com
+  515  dig @ 172.16.172.14 www.facebook.com
+  516  dig @172.16.172.14 www.facebook.com
+  517  dig @172.16.172.10 www.facebook.com
+  518  bpytop
+  519  dig @172.16.172.10 www.facebook.com
+  520  bpytop
+  521  \
+  522  ll
+  523  cat /etc/network/interfaces
+  524  clear
+  525  df -h
+  526  bpytop
+  527  htop
+  528  clear
+  529  glances
+  530  clear
+  531  exit
+  532  ckear
+  533  clear
+  534  fdisk -l
+  535  docker ps
+  536  docker exec -it 1d1a5437eca0 bash
+  537  cd /volume1/lancache/lancache/
+  538  ll
+  539  cat .env
+  540  bpytop
+  541  docker ps
+  542  docker exec -it 1d1a5437eca0 bash
+  543  dig @172.16.172.10
+  544  dig @172.16.172.10 www.msn.com
+  545  dig @172.16.172.14 www.msn.com
+  546  apt install gdebi-core -y
+  547  wget http://172.16.172.242/cmknew/check_mk/agents/check-mk-agent_2.1.0p15-1_all.deb
+  548  gdebi check-mk-agent_2.1.0p15-1_all.deb
+  549  cd /etc/xinetd.d/
+  550  updatedb
+  551  locate check |grep xinet
+  552  apt install mlocate -y
+  553  cd /etc/xinetd.d/
+  554  ll
+  555  ll ./
+  556  cat /etc/check_mk/xinetd-service-template.cfg
+  557  cp /etc/check_mk/xinetd-service-template.cfg ./check_mk
+  558  ls
+  559  /etc/init.d/xinetd restart
+  560  ll
+  561  ls -l
+  562  docker exec -it 1d1a5437eca0 bash
+  563  dig
+  564  docker exec -it 1d1a5437eca0 bash
+  565  exit
+  566  apt install bwm-ng
+  567  bwm-ng
+  568  bwm-ng --help
+  569  bwm-ng -u
+  570  bwm-ng -u Mb
+  571  ntpdate -q 172.16.172.10
+  572  ntpdate -q 172.16.172.14
+  573  ping 172.18.18.113
+  574  ip -br a
+  575  cat /etc/network/interfaces
+  576  ip -br a
+  577  docker exec -it 1d1a5437eca0 bash
+  578  cd /volume1/lancache/lancache/
+  579  ll
+  580  cat docker-compose.yml
+  581  cat .env
+  582  df -h
+  583  docker exec -it 1d1a5437eca0 bash
+  584  cd /volume1/lancache/lancache/
+  585  ll
+  586  docker-compose up -d
+  587  docker ps
+  588  docker-compose up -d
+  589  ll
+  590  sh update_containers.sh
+  591  docker ps
+  592  docker exec -it c195c5805275 bash
+  593  ip -br a
+  594  ping 10.60.80.14
+  595  docker exec -it c195c5805275 bash
+  596  ping 10.60.80.14
+  597  cd /volume1/lancache/lancache/
+  598  ll
+  599  docker-compose restart
+  600  docker ps
+  601  cd /volume1/lancache/lancache/
+  602  ll
+  603  docker-compose restart -d
+  604  docker-compose restart
+  605  cd /volume1/lancache/
+  606  ll
+  607  cd lancache/
+  608  ll
+  609  docker-compose up -d
+  610  docker-compose restart
+  611  docker ps
+  612  cd /volume1/lancache/lancache/
+  613  ll
+  614  docker-compose restart
+  615  cd /volume1/lancache/lancache/
+  616  ll
+  617  docker ps
+  618  docker-compose up -d
+  619  docker exec -it c195c5805275
+  620  docker exec -it c195c5805275 bash
+  621  docker-compose restart
+  622  ll
+  623  cat update_containers.sh
+  624  cd /volume1/lancache/
+  625  ll
+  626  cd lancache/
+  627  ll
+  628  docker-compose restart
+  629  docker ps
+  630  docker exec -it c195c5805275 bash
+  631  docker ps
+  632  docker exec -it ntp cat /etc/shell
+  633  cat /etc/shells
+  634  docker exec -it ntp cat /etc/shells
+  635  docker exec -it lancache-dns-1 cat /etc/shells
+  636  docker ps
+  637  docker exec  -it ntp sh
+  638  docker ps
+  639  docker exec -it lancache-monolithic-1 bash
+  640  ping 8.8.8.8
+  641  traceroute 8.8.8.8
+  642  traceroute 8.8.8.8apt install inetutils-traceroute
+  643  apt install inetutils-traceroute
+  644  traceroute 8.8.8.8
+  645  apt install mtr
+  646  traceroute 8.8.8.8
+  647  mtr --help
+  648  mtr 8.8.8.8
+  649  cd /volume1/lancache/lancache/
+  650  ll
+  651  docker-compose up -d
+  652  docker ps
+  653  docker-compose up -d
+  654  docker-compose restart
+  655  docker-compose up -d
+  656  mtr 8.8.8.8
+  657  mtr 1.1.1.1
+  658  mtr 8.8.8.8
+  659  ping 8.8.8.8
+  660  mtr www.google.com
+  661  ll
+  662  cd /volume1/lancache/
+  663  ll
+  664  cd lancache/
+  665  ll
+  666  nano .env
+  667  ping 9.9.9.9
+  668  docker-compose up -d
+  669  docker ps
+  670  ll
+  671  docker ps
+  672  docker exec -it 8cf4637b567 bash
+  673  ll
+  674  sh update_containers.sh
+  675  docker ps
+  676  docker exec -it
+  677  docker exec -it 9e8a82f7f96a bash
+  678  ping 8.8.8.8
+  679  mtr 8.8.8.8
+  680  mtr www.google.com
+  681  ll
+  682  cat update_containers.sh
+  683  nslookup google.com
+  684  docker ps
+  685  ll
+  686  cat .env
+  687  docker ps
+  688  docker exec -it 9e8a82f7f96a bash
+  689  ll
+  690  docker-compose up -d
+  691  docker-compose restart
+  692  docker ps
+  693  fdisk -l
+  694  lsblk
+  695  df -h
+  696  docker ps
+  697  docker exec -it 878fe78ed9ac tail -f /data/logs/access.log
+  698  ip -a
+  699  docker exec -it 878fe78ed9ac tail -f /data/logs/access.log
+  700  bpytop
+  701  cd /volume1/lancache/
+  702  ll
+  703  cd lancache/
+  704  ll
+  705  nano .env
+  706  cat docker-compose.yml
+  707  docker ps
+  708  docker exec -it 9e8a82f7f96a bash
+  709  docker ps
+  710  cd /volume1/lancache/
+  711  ll
+  712  cd lancache/
+  713  ll
+  714  docker-compose restart
+  715  lsblk
+  716  df -h
+  717  lsblk
+  718  df -h
+  719  fdisk l
+  720  fdisk -l
+  721  df -h
+  722  du -h
+  723  du -h /volume1
+  724  du -h /root
+  725  df -h /
+  726  bpytop
+  727  bwm-ng
+  728  bwm-ng --help
+  729  docker ps
+  730  docker exec -it bash 9e8a82f7f96a
+  731  docker exec -it 878fe78ed9ac tail -f /data/logs/access.log
+  732  docker exec -it 878fe78ed9ac
+  733  docker ps
+  734  docker exec -it 9e8a82f7f96a bash
+  735  cd /volume1/lancache/
+  736  ll
+  737  cd lancache/
+  738  ll
+  739  docker-compose restart
+  740  docker ps
+  741  cd /volume1/lancache/lancache/
+  742  ll
+  743  docker-compose restart
+  744  docker ps
+  745  docker exec -it 9e8a82f7f96a bash
+  746  history
+  747  bwm-ng --help
+  748  dig www.msn.com
+  749  dig www.facebook.com
+  750  dig www.msn.com
+  751  dig www.7up.com
+  752  dig www.facebook.com
+  753  dig www.msn.com
+  754  dig apple.com
+  755  dig www.msn.com
+  756  history
+  757  dig +trace www.msn.com
+  758  dig www.msn.com
+  759  dig +trace www.msn.com
+  760  dig www.msn.com
+  761  dig +trace www.msn.com
+  762  dig www.msn.com
+  763  dig +trace www.msn.com
+  764  dig www.msn.com
+  765  dig www.facebook.com
+  766  dig www.google.com
+  767  dig youtube.com
+  768  dig yahoo.com
+  769  dig gmail.com
+  770  dig yahoo.com
+  771  dig gmail.com
+  772  docker exec -it 9e8a82f7f96a bash
+  773  docker ps
+  774  docker exec ntp -it sh
+  775  docker exec d9ec452e94dc sh
+  776  docker exec -it d9ec452e94dc sh
+  777  tracepath 103.187.95.0 -p 123
+  778  ntpdateq
+  779  history
+  780  ntpdate -q 172.16.172.10
+  781  ntpdate -q 172.16.172.14
+  782  docker ps
+  783  docker exec -it 9e8a82f7f96a bash
+  784  docker exec -it 878fe78ed9ac bash
+  785  docker exec -it d9ec452e94dc sh
+  786  lsblk
+  787  df -h
+  788  du -hs * |grep G
+  789  df -hs * |grep G
+  790  du -hs * |grep G
+  791  history
+
+
+
+
+
+
+================================================
+
+780  ntpdate -q 172.16.172.10
+  781  ntpdate -q 172.16.172.14
+  782  docker exec -it d9ec452e94dc sh
+  783  docker exec -it 9e8a82f7f96a bash
+  784  docker ps
+  785  history
+  786  docker exec -it 9e8a82f7f96a bash
+  787  docker ps
+  788  docker exec -it 9e8a82f7f96a bash
+  789  df -h
+  790  dig
+  791  ping 8.8.8.8
+  792  dig
+  793  top
+  794  docker exec -it 9e8a82f7f96a bash
+  795  clear
+  796  docker ps
+  797  docker exec -it 9e8a82f7f96a bash
+  798  ;s =;
+  799  ls -l
+  800  clear
+  801  df -h
+  802*
+  803  tail -f /var/log/syslog
+  804  docker exec -it 9e8a82f7f96a bash
+  805  df -h
+  806  cd /var/lib/docker/
+  807  ls -l
+  808  cd
+  809  cd /tmp/
+  810  ls -l
+  811  rm -r
+  812  rm -r *
+  813  ls -l
+  814  clear
+  815  df -h
+  816  cd /var/log/
+  817  ls -l
+  818  du -hs * |grep G
+  819  du -hs * | grep G
+  820  du -hs * |grep G
+  821  ls -l
+  822  rm -r alternatives.log.*
+  823  ls -l
+  824  rm -r ubuntu-advantage-timer.log.*
+  825  ls -
+  826  ls -l
+  827  rm -r kern.log.*
+  828  rm -r dpkg.log.*
+  829  rm -r syslog.*
+  830  ls -l
+  831  rm -r auth.log.*
+  832  rm -r dmesg.*
+  833  ls -l
+  834  df -h
+  835  cd /dev/mapper/
+  836  ls -l
+  837  cd
+  838  clear
+  839  ld -l
+  840  ls -l
+  841  clear
+  842  ls -l
+  843  clear
+  844  dig
+  845  htop
+  846  cd /etc/ng
+  847  ls -l
+  848  cd /etc/apache2/
+  849  ls -l
+  850  cd /var/lo
+  851  cd /var/log/
+  852  ls -l
+  853  clear
+  854  d
+  855  df
+  856  dd
+  857  clear
+  858  cd
+  859  clear
+  860  docker image prune
+  861  docker ps
+  862  dd
+  863  clear
+  864  df -h
+  865  docker image prune -a
+  866  df -h
+  867  vgs
+  868  lvs
+  869  lv display
+  870  lvdisplay
+  871  lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+  872  lvresize -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+  873  vgs
+  874  pvs
+  875  pvdisplay
+  876  vgdisplay
+  877  lvdisplay
+  878  lvresize -r
+  879  lvresize --help
+  880  vgdisplay
+  881  pvs
+  882  vgextend ubuntu-vg  /dev/sdi3
+  883  vgs
+  884  lvdisplay
+  885  vgdisplay
+  886  lvextend -l +33505 /dev/ubuntu-vg/ubuntu-lv
+  887  df -h
+  888  cd /opt/
+  889  ls
+  890  du -hs *
+  891  cd /var/lib/
+  892  ls
+  893  du -hs *
+  894  du -hs * |grep G
+  895  cd docker/
+  896  ls
+  897  du -hs * |grep G
+  898  cd overlay2/
+  899  du -hs * |grep G
+  900  cd 4e2ba0e2b78401b2d42a033ed277b74c8d596a07b92dc5a889ef7b28a5b25563
+  901  ls
+  902  du -hs * |grep G
+  903  docker image prune -a
+  904  df -h
+  905  docker image prune -a
+  906  df -h
+  907  cd
+  908  history
+  909  lvextend -l +33505 /dev/ubuntu-vg/ubuntu-lv
+  910  df -h
+  911  resize2fs /dev/ubuntu-vg/ubuntu-lv
+  912  df -h
+  913  dig
+  914  docker ps
+  915  df -h
+  916  clear
+  917  docker image prune -a
+  918  history
+  919  docker image prune -a
+  920  dig
+  921  clear
+  922  dig
+  923  dig www.facebook.com
+  924  dig www.msn.com
+  925  history
