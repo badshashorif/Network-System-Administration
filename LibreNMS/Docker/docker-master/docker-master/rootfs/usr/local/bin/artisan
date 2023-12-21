@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cd /opt/librenms || exit 1
+yasu librenms:librenms php artisan "$@"

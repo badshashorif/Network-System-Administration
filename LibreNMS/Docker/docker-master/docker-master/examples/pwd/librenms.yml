@@ -1,0 +1,152 @@
+version: "3.5"
+
+x-env-global: &env-global
+  - &MYSQL_DATABASE "librenms"
+  - &MYSQL_USER "librenms"
+  - &MYSQL_PASSWORD "asupersecretpassword"
+  - &TZ "UTC"
+  - &PUID "1000"
+  - &PGID "1000"
+
+x-envlibrenms: &envlibrenms
+  MEMORY_LIMIT: "256M"
+  MAX_INPUT_VARS: "1000"
+  UPLOAD_MAX_SIZE: "16M"
+  OPCACHE_MEM_SIZE: "128"
+  REAL_IP_FROM: "0.0.0.0/32"
+  REAL_IP_HEADER: "X-Forwarded-For"
+  LOG_IP_VAR: "remote_addr"
+  CACHE_DRIVER: "redis"
+  SESSION_DRIVER: "redis"
+  REDIS_HOST: "redis"
+  LIBRENMS_SNMP_COMMUNITY: "librenmsdocker"
+  LIBRENMS_WEATHERMAP: "true"
+  LIBRENMS_WEATHERMAP_SCHEDULE: "*/5 * * * *"
+
+services:
+  db:
+    image: mariadb:10.5
+    command:
+      - "mysqld"
+      - "--innodb-file-per-table=1"
+      - "--lower-case-table-names=0"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+    volumes:
+      - "db:/var/lib/mysql"
+    environment:
+      TZ: *TZ
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: *MYSQL_DATABASE
+      MYSQL_USER: *MYSQL_USER
+      MYSQL_PASSWORD: *MYSQL_PASSWORD
+    restart: always
+
+  redis:
+    image: redis:5.0-alpine
+    environment:
+      TZ: *TZ
+    restart: always
+
+  librenms:
+    image: librenms/librenms:edge
+    hostname: librenms
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - "librenms:/data"
+    environment:
+      <<: *envlibrenms
+      TZ: *TZ
+      PUID: *PUID
+      PGID: *PGID
+      DB_HOST: "db"
+      DB_NAME: *MYSQL_DATABASE
+      DB_USER: *MYSQL_USER
+      DB_PASSWORD: *MYSQL_PASSWORD
+      DB_TIMEOUT: "60"
+    restart: always
+
+  dispatcher:
+    image: librenms/librenms:edge
+    hostname: librenms-dispatcher-1234
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    depends_on:
+      - librenms
+      - redis
+    volumes:
+      - "librenms:/data"
+    environment:
+      <<: *envlibrenms
+      TZ: *TZ
+      PUID: *PUID
+      PGID: *PGID
+      DB_HOST: "db"
+      DB_NAME: *MYSQL_DATABASE
+      DB_USER: *MYSQL_USER
+      DB_PASSWORD: *MYSQL_PASSWORD
+      DB_TIMEOUT: "60"
+      DISPATCHER_NODE_ID: "dispatcher1234"
+      SIDECAR_DISPATCHER: "1"
+    restart: always
+
+  dispatcher2:
+    image: librenms/librenms:edge
+    hostname: librenms-dispatcher-5678
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    depends_on:
+      - librenms
+      - redis
+    volumes:
+      - "librenms:/data"
+    environment:
+      <<: *envlibrenms
+      TZ: *TZ
+      PUID: *PUID
+      PGID: *PGID
+      DB_HOST: "db"
+      DB_NAME: *MYSQL_DATABASE
+      DB_USER: *MYSQL_USER
+      DB_PASSWORD: *MYSQL_PASSWORD
+      DB_TIMEOUT: "60"
+      DISPATCHER_NODE_ID: "dispatcher5678"
+      SIDECAR_DISPATCHER: "1"
+    restart: always
+
+  syslogng:
+    image: librenms/librenms:edge
+    hostname: librenms-syslogng
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    depends_on:
+      - librenms
+      - redis
+    volumes:
+      - "librenms:/data"
+    environment:
+      <<: *envlibrenms
+      TZ: *TZ
+      PUID: *PUID
+      PGID: *PGID
+      DB_HOST: "db"
+      DB_NAME: *MYSQL_DATABASE
+      DB_USER: *MYSQL_USER
+      DB_PASSWORD: *MYSQL_PASSWORD
+      DB_TIMEOUT: "60"
+      SIDECAR_SYSLOGNG: "1"
+    restart: always
+
+volumes:
+  db:
+  librenms:
