@@ -1,0 +1,40 @@
+Reference Link: https://hub.docker.com/r/linuxserver/smokeping
+
+
+# Docker-Compose.yml
+
+
+---
+version: "2.1"
+services:
+  smokeping:
+    image: lscr.io/linuxserver/smokeping:latest
+    container_name: smokeping
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - </path/to/smokeping/config>:/config
+      - </path/to/smokeping/data>:/data
+    ports:
+      - 80:80
+    restart: unless-stopped
+
+
+
+========================
+
+
+#Docker Run
+
+docker run -d \
+  --name=smokeping \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/London \
+  -p 80:80 \
+  -v </path/to/smokeping/config>:/config \
+  -v </path/to/smokeping/data>:/data \
+  --restart unless-stopped \
+  lscr.io/linuxserver/smokeping:latest
