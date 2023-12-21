@@ -1,0 +1,55 @@
+To check the Total Hit into the Server:
+========================================
+#grep sasl_username /var/log/maillog|awk {'print $NF'} |sort |uniq -c |sort -n
+
+To show deffered queue List:
+============================
+[zimbra@mail ~]$sudo ~/libexec/zmqstat
+
+To findout the respective user ip address:
+=========================================
+#grep sasl /var/log/maillog | grep planner
+
+To findout the ip address owner info:
+=====================================
+https://bgp.he.net/ip/
+
+To Change the E-mail ID Password in Commad Line:
+================================================
+$zmprov sp acct.scm.moulovibazar Supp0rT@n0c
+
+To Delete ALL Messages From Queue:
+===================================
+#/opt/zimbra/postfix/sbin/postsuper -d ALL
+
+Another way to do this:
+
+#mailq | awk '{print $1}' | postsuper -d -
+
+
+#/opt/zimbra/postfix/sbin/postqueue -p | tail -n +2 | awk 'BEGIN { RS = "" } / to.dinajpur@metalbd\.biz/ { print $1 }' | tr -d '*' | /opt/zimbra/postfix/sbin/postsuper -d -
+
+To delete all messages from Deferred Zimbra Mail server Queue run command:
+
+# /opt/zimbra/common/sbin/postsuper -d ALL deferred
+
+How to delete Zimbra mail server Postfix queue
+
+$ sudo /opt/zimbra/postfix/sbin/postsuper -d ALL
+
+Note. Your postsuper location may be differnet for example:
+===========================================================\
+/opt/zimbra/postfix/sbin/postsuper
+
+or
+
+/opt/zimbra/common/sbin/postsuper
+
+Reference Web Link:
+===================
+
+https://wiki.zimbra.com/wiki/Managing-The-Postfix-Queues
+https://skrinhitam.wordpress.com/2016/10/08/howto-delete-all-deferred-messages-from-zimbra-mail-queue/
+https://arstech.net/how-to-delete-zimbra-mail-server-postfix-queue/
+
+
