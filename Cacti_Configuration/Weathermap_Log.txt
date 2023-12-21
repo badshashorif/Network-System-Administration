@@ -1,0 +1,43 @@
+ cd weathermap/
+  864  ll
+  865  chmod +x weathermap.conf
+  866  chmod +x configs/
+  867  chmod 777 configs/
+  868  history
+  869  history
+  870  locate DOT-Internet.conf
+  871  ll /var/www/html/plugins/weathermap/configs/DOT-Internet.conf
+  872  chmod 777 /var/www/html/plugins/weathermap/configs/DOT-Internet.conf
+  873  ll /var/www/html/plugins/weathermap/configs/DOT-Internet.conf
+  874  ll /var/www/html/plugins/weathermap/configs/
+  875  /var/www/html/plugins/weathermap/configs/
+  876  chmod 777 /var/www/html/plugins/weathermap/configs/simple.conf
+  877  date
+  878  locate /var/www/html/plugins/weathermap/output
+  879  chmod 777 /var/www/html/plugins/weathermap/output
+  880  ll /var/www/html/plugins/weathermap/output
+  881  chmod 777 /var/www/html/plugins/weathermap/output/index.php
+  882  chmod 777 /var/www/html/plugins/weathermap/output/.htaccess
+  883  cat /var/www/html/plugins/weathermap/lib/poller-common.php
+  884  chmod 777 /var/www/html/plugins/weathermap/lib/poller-common.php
+  885  nano /var/www/html/plugins/weathermap/lib/poller-common.php
+  886  vim /var/www/html/plugins/weathermap/lib/poller-common.php
+  887  docker ps
+  888  history
+  889  locate DOT-Internet.conf
+  890  locate poller-common.php
+  891  locate DOT_INT.html
+  892  cat /var/www/html/plugins/weathermap/DOT_INT.html
+  893  cd /var/www/html/plugins/weathermap/
+  894  ll\
+  895  ll
+  896  cat output/.htaccess
+  897  locate DOT_INT.html
+  898  cd /var/www/html/plugins/
+  899  ll
+  900  cd weathermap/
+  901  l
+  902  ll
+  903  systemctl status apache2.service
+  904  locate DOT_INT.html
+  905  history
