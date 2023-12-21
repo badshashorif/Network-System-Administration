@@ -1,0 +1,15 @@
+[INFO] Installation ready.
+[INFO] Your ISPConfig admin password is: KSC2bhk8unVngDY
+[INFO] Your MySQL root password is: uwgXmffjHnH5y85TkAmq
+[INFO] Warning: Please delete the log files in /tmp/ispconfig-ai/var/log/setup-* once you don't need them anymore because they contain your passwords!
+
+
+
+
+Nagordola
+============
+
+[INFO] Your ISPConfig admin password is: 5sLZXzrzWw2qG6H
+[INFO] Your MySQL root password is: WBp76SuUBq7orfHYvQJ9
+[INFO] Warning: Please delete the log files in /tmp/ispconfig-ai/var/log/setup-* once you don't need them anymore because they contain your passwords!
+
