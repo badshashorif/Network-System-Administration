@@ -1,0 +1,55 @@
+Refrence Link: https://docs.checkmk.com/latest/en/introduction_docker.html
+
+#docker container run
+
+docker container run -dit -p 172.16.172.242:80:5000 -p 172.16.172.242:8000:8000 --tmpfs /opt/omd/sites/cmk/tmp:uid=1000,gid=1000 -v monitoring:/omd/sites --name monitoring -v /etc/localtime:/etc/localtime:ro --restart always checkmk/check-mk-raw:2.1.0-latest
+
+
+
+
+
+#docker-compose.yml
+
+---
+version: '3'
+services:
+   checkmk:
+     image: checkmk/check-mk-raw:2.1.0-latest
+     ports:
+       - "172.16.172.242:162:162/udp"
+       - "172.16.172.242:514:514/udp"
+       - "172.16.172.242:514:514/tcp"
+       - "172.16.172.242:6557:6557/tcp"
+       - "172.16.172.242:80:5000/tcp"
+     environment:
+       - MAIL_RELAY_HOST=mailrelay.dotinternet.com.bd
+       - CMK_SITE_ID=cmknew
+       - CMK_PASSWORD=Security@321#
+       - CMK_LIVESTATUS_TCP=on
+     volumes:
+       - /etc/localtime:/etc/localtime:ro
+       - cmknew:/omd/sites
+
+volumes:
+  cmknew:
+
+# --hostname 'mymonitoring.mydomain.com'.
+
+#capabilities fuer tmpfs
+
+
+
+# volumes aus folders mit git drunter
+# local/share/check_mk oder local/share generell
+
+# volumes aus folders mit git drunter (o.ae.)
+# etc/check_mk/conf.d
+# achtung credentials
+
+
+# wichtigst: main config, apache parameter
+
+# overlay ueber normalen container:
+#deflate und expiry settings etc. alles nach $OMD_SITE/etc/apache...
+# logging 3x pruefen, dass keine lookups gemacht werden
+

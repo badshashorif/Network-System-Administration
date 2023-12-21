@@ -1,0 +1,29 @@
+185  wget http://172.16.172.242/cmknew/check_mk/agents/check-mk-agent_2.1.0p15-1_all.deb
+  186  ll
+  187  apt install gdebi-core -y
+  188  gdebi check-mk-agent_2.1.0p15-1_all.deb
+  189  apt install xinetd -y
+  190  cd /etc/xinetd.d/
+  191  ll
+  192  cd ..
+  193  ll
+  194  cd ~
+  195  ll
+  196  gdebi check-mk-agent_2.1.0p15-1_all.deb
+  197  cd /etc/xinetd.d/
+  198  ll
+  199  ls -l
+  200  apt install mlocate
+  201  updatedb
+  202  locate check |grep xinet
+  203  cat /etc/check_mk/xinetd-service-template.cfg
+  204  cp /etc/check_mk/xinetd-service-template.cfg ./check_mk
+  205  ls
+  206  vim check_mk
+  207  nano check_mk
+  208  /etc/init.d/xinetd restart
+  209  ip -br a
+  210  dig www.google.com
+  211  dig www.google.com @172.16.172.10
+  212  dig www.msn.com @172.16.172.10
+  213  history
