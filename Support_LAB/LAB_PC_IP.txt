@@ -1,0 +1,3 @@
+LAB_PC IP 172.28.100.162 (RDP)
+Username: lab-noc
+Password: Noc@2023#
