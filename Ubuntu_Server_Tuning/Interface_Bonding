@@ -83,3 +83,43 @@ iface enp18s0f0 inet manual
   bond-master bond0
 
 Replace <ip>, <cidr>, and <gateway> with your actual IP address, CIDR notation, and gateway information, respectively. Adjust other settings as needed for your network configuration. Keep in mind that the /etc/network/interfaces file is specific to Debian-based systems, and other distributions may use different network configuration files or tools.
+
+
+Example: 
+=============
+
+
+cat /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+
+
+########### Legacy Network Configuration
+auto lo
+iface lo inet loopback
+#
+
+auto bond0
+iface bond0 inet static
+  address 59.153.100.98/30
+  bond-slaves enp129s0f0 enp129s0f1
+  bond-mode 802.3ad
+  bond-miimon 100
+  bond-xmit-hash-policy layer2+3
+  gateway 59.153.100.97
+
+  dns-nameservers 8.8.8.8
+  dns-search google.com
+
+iface enp129s0f0 inet manual
+  bond-master bond0
+
+iface enp129s0f1 inet manual
+  bond-master bond0
+
+#
+auto bond0:0
+iface bond0:0 inet static
+    address 172.16.172.10/30
