@@ -1,0 +1,85 @@
+Below is the information of netplan configuration sample:
+
+# This is the network config written by 'subiquity'
+network:
+  bonds:
+    bond0:
+      addresses:
+      - <ip>/<cidr>
+      interfaces:
+      - enp35s0
+      - enp36s0
+      - enp18s0f0
+      nameservers:
+        addresses:
+        - 1.1.1.1
+        search: [limda.net]
+      parameters:
+        mii-monitor-interval: 100
+        mode: 802.3ad
+        transmit-hash-policy: layer2+3
+      routes:
+      - to: default
+        via: <gateway>
+  ethernets:
+    enp35s0:
+      dhcp4: false
+      dhcp6: false
+    enp36s0:
+      dhcp4: false
+      dhcp6: false
+    enp18s0f0:
+      dhcp4: false
+      dhcp6: false
+  version: 2
+
+
+Explanations: 
+Yes, the provided configuration appears to be a Netplan configuration file written in YAML format. It defines a network configuration with a bonded interface (bond0) consisting of three physical interfaces (enp35s0, enp36s0, and enp18s0f0). Here's a breakdown of the configuration:
+
+bond0: Defines a bonded interface with the specified IP address and CIDR notation. It includes a list of physical interfaces (enp35s0, enp36s0, enp18s0f0) to be part of the bond.
+
+addresses: Specifies the IP address and CIDR notation for the bonded interface.
+interfaces: Lists the physical interfaces that will be part of the bond.
+nameservers: Specifies DNS resolver information, including the addresses of DNS servers (1.1.1.1) and a search domain (limda.net).
+parameters: Additional parameters for the bond configuration, including mii-monitor-interval, mode, and transmit-hash-policy.
+routes: Configures a default route with the specified gateway.
+ethernets: Defines individual configurations for each physical interface (enp35s0, enp36s0, enp18s0f0).
+
+For each physical interface, dhcp4 and dhcp6 are set to false, indicating that DHCP is disabled for IPv4 and IPv6.
+version: Specifies the Netplan configuration version, which is set to 2.
+
+Make sure to replace <ip>, <cidr>, and <gateway> with your actual IP address, CIDR notation, and gateway information, respectively. Additionally, adjust other settings based on your network requirements.
+
+
+
+Below is the configuration of /etc/network/interface 
+===========================================================
+
+
+Certainly! Below is the equivalent configuration for the /etc/network/interfaces file:
+
+# This is the network config written by 'subiquity'
+
+auto bond0
+iface bond0 inet static
+  address <ip>/<cidr>
+  bond-slaves enp35s0 enp36s0 enp18s0f0
+  bond-mode 802.3ad
+  bond-miimon 100
+  bond-xmit-hash-policy layer2+3
+  gateway <gateway>
+
+  dns-nameservers 1.1.1.1
+  dns-search limda.net
+
+iface enp35s0 inet manual
+  bond-master bond0
+
+iface enp36s0 inet manual
+  bond-master bond0
+
+iface enp18s0f0 inet manual
+  bond-master bond0
+
+Replace <ip>, <cidr>, and <gateway> with your actual IP address, CIDR notation, and gateway information, respectively. Adjust other settings as needed for your network configuration. Keep in mind that the /etc/network/interfaces file is specific to Debian-based systems, and other distributions may use different network configuration files or tools.
