@@ -1,0 +1,408 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  MMM      MMM       KKK                          TTTTTTTTTTT      KKK
+  MMMM    MMMM       KKK                          TTTTTTTTTTT      KKK
+  MMM MMMM MMM  III  KKK  KKK  RRRRRR     OOOOOO      TTT     III  KKK  KKK
+  MMM  MM  MMM  III  KKKKK     RRR  RRR  OOO  OOO     TTT     III  KKKKK
+  MMM      MMM  III  KKK KKK   RRRRRR    OOO  OOO     TTT     III  KKK KKK
+  MMM      MMM  III  KKK  KKK  RRR  RRR   OOOOOO      TTT     III  KKK  KKK
+
+  MikroTik RouterOS 7.11 (c) 1999-2023       https://www.mikrotik.com/
+
+Press F1 for help
+
+
+
+
+(294 messages not shown)
+2024-06-21 06:35:06 system,error,critical router was rebooted without proper shu
+tdown
+2024-05-21 00:32:12 system,critical,info ntp change time Jun/21/2024 06:35:24 =>
+ May/21/2024 00:32:12
+2024-06-21 07:25:37 system,error,critical router was rebooted without proper shu
+tdown
+2024-05-21 01:22:53 system,critical,info ntp change time Jun/21/2024 07:26:05 =>
+ May/21/2024 01:22:53
+2024-05-23 00:53:15 system,error,critical login failure for user mithu from AC:1
+F:6B:AB:6A:47 via mac-telnet
+2024-05-25 19:10:29 system,error,critical login failure for user noc-badsha from
+ 103.180.245.5 via winbox
+2024-05-25 19:10:38 system,error,critical login failure for user mithu from 103.
+180.245.5 via winbox
+2024-05-25 19:53:31 system,error,critical login failure for user noc-badsha from
+ 10.19.107.22 via winbox
+[noc-badsha@NAT_RTR_HQ_02] > ip firewall/export 
+# 2024-05-28 12:19:49 by RouterOS 7.11
+# software id = Y00E-VT2U
+#
+/ip firewall layer7-protocol
+add name=Facebook regexp="^.+(facebook.com).*\$"
+/ip firewall address-list
+add address=59.153.103.224/27 list=bgp-networks
+add address=10.11.0.0/16 list=LAN_BLOCK
+add address=10.12.0.0/16 list=LAN_BLOCK
+add address=10.13.0.0/16 list=LAN_BLOCK
+add address=10.14.0.0/16 list=LAN_BLOCK
+add address=10.15.0.0/16 list=LAN_BLOCK
+add address=10.16.0.0/16 list=LAN_BLOCK
+add address=10.17.0.0/16 list=LAN_BLOCK
+add address=10.18.0.0/16 list=LAN_BLOCK
+add address=10.19.0.0/16 list=LAN_BLOCK
+add address=103.217.111.224/27 list=RAW-DST
+add address=45.248.151.224/27 list=RAW-DST
+add address=esiee.fr list=Block-Domin
+add address=172.28.100.0/24 list=LAN_BLOCK
+add address=app.pmaspire.com list=Block-Domin
+add address=144.91.87.188 comment=app.pmaspire.com list=Block-Domin
+add address=portal.lemonpi.io comment=app.pmaspire.com list=Block-Domin
+add address=15.235.144.188 comment=bdm.com.bd disabled=yes list=Block-Domin
+add address=195.8.215.136 disabled=yes list=Block-Domin
+add address=10.30.0.0/16 list=LAN_BLOCK
+add address=10.31.0.0/16 list=LAN_BLOCK
+add address=10.32.0.0/16 list=LAN_BLOCK
+add address=10.33.0.0/16 list=LAN_BLOCK
+add address=10.34.0.0/16 list=LAN_BLOCK
+add address=10.35.0.0/16 list=LAN_BLOCK
+add address=10.36.0.0/16 list=LAN_BLOCK
+add address=10.37.0.0/16 list=LAN_BLOCK
+add address=10.38.0.0/16 list=LAN_BLOCK
+add address=3.208.0.0/12 list=Country-Issue
+add address=13.33.88.0/22 list=Country-Issue
+add address=13.227.248.0/21 list=Country-Issue
+add address=13.248.208.0/20 list=Country-Issue
+add address=18.66.28.0/22 list=Country-Issue
+add address=18.66.48.0/21 list=Country-Issue
+add address=42.99.128.0/17 list=Country-Issue
+add address=44.192.0.0/11 list=Country-Issue
+add address=52.217.80.0/20 list=Country-Issue
+add address=52.217.192.0/19 list=Country-Issue
+add address=54.239.216.0/23 list=Country-Issue
+add address=76.223.64.0/20 list=Country-Issue
+add address=108.159.56.0/21 list=Country-Issue
+add address=108.159.80.0/23 list=Country-Issue
+add address=52.20.0.0/14 list=Country-Issue
+add address=72.246.0.0/15 list=Country-Issue
+add address=59.153.158.0/24 list=Country-Issue
+add address=162.62.56.0/22 comment=PUBG list=Country-Issue
+add address=101.33.100.0/22 comment=PUBG list=Country-Issue
+add address=161.202.224.0/19 comment=MOBILE_LEGEND list=Country-Issue
+add address=122.10.138.0/23 comment=MOBILE_LEGEND list=Country-Issue
+add address=107.155.0.0/18 comment=MOBILE_LEGEND list=Country-Issue
+add address=61.29.251.0/24 comment=MOBILE_LEGEND list=Country-Issue
+add address=148.153.168.0/22 comment=MOBILE_LEGEND list=Country-Issue
+add address=94.74.64.0/20 comment=MOBILE_LEGEND list=Country-Issue
+add address=200.121.192.0/18 comment=MOBILE_LEGEND list=Country-Issue
+add address=17.248.128.0/17 comment=MOBILE_LEGEND list=Country-Issue
+add address=128.1.0.0/16 comment=MOBILE_LEGEND list=Country-Issue
+add address=128.14.0.0/16 comment=MOBILE_LEGEND list=Country-Issue
+add address=138.2.65.161 comment=etds.gov.bd list=Block-Domin
+add address=101.32.80.0/20 comment=PUBG list=Country-Issue
+add address=43.154.192.0/18 comment=PUBG list=Country-Issue
+add address=119.28.0.0/18 comment=PUBG list=Country-Issue
+add address=129.226.0.0/16 comment=PUBG list=Country-Issue
+add address=47.241.0.0/16 comment=PUBG list=Country-Issue
+add address=150.109.0.0/16 comment=PUBG list=Country-Issue
+add address=40.112.0.0/13 comment=PUBG list=Country-Issue
+add address=94.185.128.0/17 comment=aramex list=Country-Issue
+add address=209.166.144.13 list=Block-Domin
+add address=101.32.0.0/16 comment=PUBG list=Country-Issue
+add address=96.6.32.0/24 comment=aliexpess list=Block-Domin1
+add address=47.246.131.0/24 comment=aliexpress list=Block-Domin1
+add address=138.199.61.85 list=Country-Issue
+add address=149.34.253.169 list=Country-Issue
+add address=172.67.71.104 list=Country-Issue
+add address=59.153.102.224/27 list=bgp-networks
+add address=103.72.212.224/27 list=bgp-networks
+add address=103.187.94.224/27 list=bgp-networks
+add address=45.248.151.224/27 list=bgp-networks
+add address=103.217.111.224/27 list=bgp-networks
+add address=10.10.0.0/16 list=LAN_BLOCK
+add address=10.20.0.0/16 list=LAN_BLOCK
+add address=10.21.0.0/16 list=LAN_BLOCK
+add address=10.22.0.0/16 list=LAN_BLOCK
+add address=10.23.0.0/16 list=LAN_BLOCK
+add address=10.24.0.0/16 list=LAN_BLOCK
+add address=10.25.0.0/16 list=LAN_BLOCK
+add address=10.26.0.0/16 list=LAN_BLOCK
+add address=10.27.0.0/16 list=LAN_BLOCK
+add address=10.28.0.0/16 list=LAN_BLOCK
+add address=59.153.100.0/24 list=Allow_NMS
+add address=172.28.100.0/24 list=Allow_NMS
+add address=172.16.172.0/24 list=Allow_NMS
+add address=18.164.144.100 list=Country-Issue
+add address=172.217.31.205 list=Country-Issue
+add address=18.161.246.93 list=Country-Issue
+add address=23.35.63.156 list=Country-Issue
+add address=54.230.65.77 list=Country-Issue
+add address=18.155.107.94 list=Country-Issue
+add address=31.13.64.1 list=Country-Issue
+add address=18.164.144.22 list=Country-Issue
+add address=18.67.161.93 list=Country-Issue
+add address=3.5.25.161 list=Country-Issue
+add address=142.250.193.106 list=Country-Issue
+add address=142.250.195.66 list=Country-Issue
+add address=108.159.15.8 list=Country-Issue
+add address=23.23.149.64 list=Country-Issue
+add address=18.164.144.19 list=Country-Issue
+add address=52.218.120.0 list=Country-Issue
+add address=23.200.79.193 list=Country-Issue
+add address=74.125.68.155 list=Country-Issue
+add address=52.54.22.52 list=Country-Issue
+add address=31.13.64.35 list=Country-Issue
+add address=142.250.76.78 list=Country-Issue
+add address=142.250.205.228 list=Country-Issue
+add address=142.250.182.131 list=Country-Issue
+add address=142.250.182.40 list=Country-Issue
+add address=www.xpart.host list=Block-Domin
+add address=www.citechco.net list=Block-Domin
+add address=www.quora.com list=Block-Domin1
+add address=172.16.172.32/30 list=LAN_BLOCK
+add address=www.hoichoi.com list=Block-Domin1
+add address=198.177.125.139 list=Block-Domin1
+add address=8.8.8.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=8.8.4.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=1.1.1.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=9.9.9.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=4.2.2.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=192.168.0.0/16 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=64.6.64.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=64.6.65.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=94.140.14.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=94.140.15.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=8.26.56.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=8.20.247.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=80.80.80.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=80.80.81.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=101.101.101.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=101.102.103.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=195.46.39.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=156.154.70.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=156.154.71.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=185.228.168.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=185.228.169.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=76.76.2.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=76.76.10.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=136.143.190.0/24 comment=test list=Block-Domin
+add address=208.67.222.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=208.67.220.0/24 disabled=yes list=ALLOW_PUBLIC_DNS
+add address=174.138.166.0/24 comment=test disabled=yes list=Block-Domin1
+add address=17.0.0.0/8 list=ALLOW_PUBLIC_NTP
+add address=18.144.0.0/15 list=ALLOW_PUBLIC_NTP
+add address=31.209.80.0/20 list=ALLOW_PUBLIC_NTP
+add address=40.80.0.0/12 list=ALLOW_PUBLIC_NTP
+add address=52.148.0.0/14 list=ALLOW_PUBLIC_NTP
+add address=66.220.0.0/19 list=ALLOW_PUBLIC_NTP
+add address=66.243.0.0/17 list=ALLOW_PUBLIC_NTP
+add address=67.219.96.0/20 list=ALLOW_PUBLIC_NTP
+add address=104.167.215.0/24 list=ALLOW_PUBLIC_NTP
+add address=108.59.0.0/20 list=ALLOW_PUBLIC_NTP
+add address=114.118.0.0/21 list=ALLOW_PUBLIC_NTP
+add address=120.24.0.0/14 list=ALLOW_PUBLIC_NTP
+add address=128.138.0.0/16 list=ALLOW_PUBLIC_NTP
+add address=129.6.15.0/24 list=ALLOW_PUBLIC_NTP
+add address=131.107.0.0/16 list=ALLOW_PUBLIC_NTP
+add address=132.163.96.0/24 list=ALLOW_PUBLIC_NTP
+add address=132.163.97.0/24 list=ALLOW_PUBLIC_NTP
+add address=133.100.9.0/24 list=ALLOW_PUBLIC_NTP
+add address=137.146.0.0/16 list=ALLOW_PUBLIC_NTP
+add address=139.78.0.0/16 list=ALLOW_PUBLIC_NTP
+add address=139.199.0.0/16 list=ALLOW_PUBLIC_NTP
+add address=140.142.0.0/16 list=ALLOW_PUBLIC_NTP
+add address=140.221.0.0/18 list=ALLOW_PUBLIC_NTP
+add address=159.196.0.0/22 list=ALLOW_PUBLIC_NTP
+add address=162.159.128.0/17 list=ALLOW_PUBLIC_NTP
+add address=182.92.0.0/16 list=ALLOW_PUBLIC_NTP
+add address=185.125.190.0/24 list=ALLOW_PUBLIC_NTP
+add address=192.6.38.0/24 list=ALLOW_PUBLIC_NTP
+add address=192.36.143.0/24 list=ALLOW_PUBLIC_NTP
+add address=192.36.144.0/24 list=ALLOW_PUBLIC_NTP
+add address=192.43.244.0/24 list=ALLOW_PUBLIC_NTP
+add address=192.46.208.0/21 list=ALLOW_PUBLIC_NTP
+add address=193.182.111.0/24 list=ALLOW_PUBLIC_NTP
+add address=194.225.0.0/16 list=ALLOW_PUBLIC_NTP
+add address=199.165.64.0/18 list=ALLOW_PUBLIC_NTP
+add address=202.112.0.0/13 list=ALLOW_PUBLIC_NTP
+add address=203.107.6.0/24 list=ALLOW_PUBLIC_NTP
+add address=204.17.205.0/24 list=ALLOW_PUBLIC_NTP
+add address=209.51.160.0/19 list=ALLOW_PUBLIC_NTP
+add address=209.81.0.0/18 list=ALLOW_PUBLIC_NTP
+add address=212.47.224.0/19 list=ALLOW_PUBLIC_NTP
+add address=216.218.128.0/17 list=ALLOW_PUBLIC_NTP
+add address=216.239.32.0/19 list=ALLOW_PUBLIC_NTP
+add address=172.16.172.0/24 list=ALLOW_PUBLIC_NTP
+add address=193.57.144.0/24 list=ALLOW_PUBLIC_NTP
+add address=202.124.96.0/19 list=ALLOW_PUBLIC_NTP
+add address=220.158.212.0/22 list=ALLOW_PUBLIC_NTP
+add address=3.132.0.0/14 list=ALLOW_PUBLIC_NTP
+add address=3.208.0.0/12 list=ALLOW_PUBLIC_NTP
+add address=59.153.103.0/24 list=NAT_BLOCK
+add address=103.217.111.0/24 list=NAT_BLOCK
+add address=59.153.102.0/24 list=NAT_BLOCK
+add address=103.187.94.0/24 list=NAT_BLOCK
+add address=103.72.212.0/24 list=NAT_BLOCK
+add address=45.248.151.0/24 list=NAT_BLOCK
+/ip firewall connection tracking
+set tcp-established-timeout=1h
+/ip firewall filter
+add action=fasttrack-connection chain=forward hw-offload=yes src-address-list=!LAN_BLOCK
+add action=drop chain=forward comment=Drop_Invalid_Connection connection-state=invalid
+add action=accept chain=forward dst-port=80,443,53 protocol=tcp src-address=10.250.0.0/16
+add action=accept chain=forward dst-port=80,443,53 protocol=udp src-address=10.250.0.0/16
+add action=drop chain=forward src-address=10.250.0.0/16
+add action=drop chain=forward src-address=10.10.248.0/23
+add action=drop chain=forward comment=NMS_Drop src-address=172.28.100.160
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.217.108.0/22 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.198.136.0/22 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=45.248.148.0/22 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.187.94.0/23 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=59.153.100.0/22 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.119.102.0/24 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.139.234.0/23 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.181.42.0/24 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.228.202.0/23 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.180.244.0/23 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.121.216.0/23 tcp-flags=fin
+add action=log chain=forward connection-state=established protocol=tcp src-address=103.72.212.0/24 tcp-flags=fin
+add action=accept chain=forward comment=Drop_Second_Router_Request connection-state=new in-interface-list=!NO_2_RT protocol=icmp src-address-list=Second_Router ttl=less-than:61
+add action=drop chain=forward comment="3709229_LINUX SERVER LOACAL IP HOST OFF KORA HOICE,,, User er router 2nd hope disbale kora hoice" connection-state=new in-interface-list=!NO_2_RT src-address=!10.32.38.73 src-address-list=Second_Router ttl=\
+    less-than:61
+/ip firewall mangle
+add action=mark-packet chain=postrouting new-packet-mark=ICMP passthrough=no protocol=icmp
+add action=log chain=prerouting connection-state=established protocol=tcp src-address=10.0.0.0/8 tcp-flags=fin
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.10.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.11.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.12.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established disabled=yes in-interface-list=!NO_2_RT src-address=10.13.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.14.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.15.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.16.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.17.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.18.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.30.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.31.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.32.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.33.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established disabled=yes in-interface-list=!NO_2_RT src-address=10.34.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.35.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.36.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.37.0.0/16 ttl=less-than:61
+add action=add-src-to-address-list address-list=Second_Router address-list-timeout=30m chain=forward connection-state=established in-interface-list=!NO_2_RT src-address=10.38.0.0/16 ttl=less-than:61
+/ip firewall nat
+add action=src-nat chain=srcnat out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.60 to-addresses=45.248.151.224
+add action=src-nat chain=srcnat dst-address-list=Block-Domin1 out-interface=0.1_INTERNET_JUNIPER to-addresses=59.153.102.225
+add action=src-nat chain=srcnat comment=>>>>>>NOC-SCRIPT-PC<<<<<<< out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.155 to-addresses=59.153.102.245
+add action=src-nat chain=srcnat comment=>>>>>>NOC-SCRIPT-PC<<<<<<< out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.41 to-addresses=59.153.102.245
+add action=src-nat chain=srcnat comment=hannan_pc out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.169 to-addresses=103.217.111.245
+add action=src-nat chain=srcnat comment=>>>>>>NOC-SCRIPT-PC<<<<<<< out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.94 to-addresses=59.153.102.245
+add action=src-nat chain=srcnat comment=>>>>>>NOC-SCRIPT-PC<<<<<<< out-interface=0.1_INTERNET_JUNIPER src-address=10.19.103.5 to-addresses=45.248.151.245
+add action=src-nat chain=srcnat comment=>>>>>>SUJIT-PC<<<<<<< out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.239 to-addresses=59.153.102.245
+add action=src-nat chain=srcnat comment=>>>>>>SUJIT-PC<<<<<<< out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.220 to-addresses=59.153.103.224
+add action=src-nat chain=srcnat out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.152 to-addresses=59.153.102.245
+add action=src-nat chain=srcnat out-interface=0.1_INTERNET_JUNIPER src-address=10.19.107.41 to-addresses=103.217.111.228
+add action=same chain=srcnat comment=*******COUNTRY_ISSUE******************* dst-address-list=Country-Issue out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:6/0 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=\
+    45.248.151.224/27
+add action=same chain=srcnat dst-address-list=Country-Issue out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:6/1 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.217.111.224/27
+add action=same chain=srcnat dst-address-list=Country-Issue out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:6/2 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=45.248.151.224/27
+add action=same chain=srcnat dst-address-list=Country-Issue out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:6/3 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.217.111.224/27
+add action=same chain=srcnat dst-address-list=Country-Issue out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:6/4 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=45.248.151.224/27
+add action=same chain=srcnat dst-address-list=Country-Issue out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:6/5 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.217.111.224/27
+add action=same chain=srcnat comment="========NAT BLOCK=========" out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/0 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.103.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/1 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.217.111.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/3 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.102.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/4 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.72.212.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/5 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.187.94.224/27
+add action=same chain=srcnat dst-address-list="" out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/6 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.103.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/7 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.217.111.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/8 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=45.248.151.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/9 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.102.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/2 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=45.248.151.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/10 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.72.212.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/11 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.187.94.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/12 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.103.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/13 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.217.111.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/14 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=45.248.151.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/15 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.102.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/16 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.72.212.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/17 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.187.94.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/18 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.103.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/19 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.217.111.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/20 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=45.248.151.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/21 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.102.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/22 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.72.212.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/23 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.187.94.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/24 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.103.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/25 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.217.111.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/26 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=45.248.151.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/27 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=59.153.102.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/28 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.72.212.224/27
+add action=same chain=srcnat out-interface=0.1_INTERNET_JUNIPER per-connection-classifier=src-address:30/29 same-not-by-dst=no src-address-list=LAN_BLOCK to-addresses=103.187.94.224/27
+add action=dst-nat chain=dstnat comment="NTP & DNS DST-NAT" dst-port=123 protocol=udp src-address=10.0.0.0/8 to-addresses=172.16.172.10 to-ports=123
+/ip firewall raw
+add action=accept chain=prerouting comment=*******************************************Firewall_For_ICMP******************************** limit=3k,500:packet protocol=icmp
+add action=drop chain=prerouting protocol=icmp
+add action=accept chain=prerouting comment=*******************************************Firewall_For_DNS******************************** limit=3k,500:packet port=53 protocol=udp
+add action=accept chain=prerouting limit=3k,500:packet port=53 protocol=tcp
+add action=drop chain=prerouting port=53 protocol=udp
+add action=drop chain=prerouting port=53 protocol=tcp
+add action=accept chain=prerouting comment=*******************************************Firewall_For_NTP******************************** limit=1k,100:packet port=123 protocol=udp
+add action=accept chain=prerouting limit=1k,100:packet port=123 protocol=tcp
+add action=drop chain=prerouting port=123 protocol=udp
+add action=drop chain=prerouting port=123 protocol=tcp
+add action=accept chain=prerouting comment=*******************************************Firewall_For_LDAP******************************** limit=1k,500:packet port=389 protocol=udp
+add action=accept chain=prerouting limit=1k,500:packet port=389 protocol=tcp
+add action=drop chain=prerouting port=389 protocol=udp
+add action=drop chain=prerouting port=389 protocol=tcp
+add action=accept chain=prerouting comment=*******************************************Firewall_For_CharGEN******************************** limit=1k,500:packet port=19 protocol=udp
+add action=accept chain=prerouting limit=1k,500:packet port=19 protocol=tcp
+add action=drop chain=prerouting port=19 protocol=udp
+add action=drop chain=prerouting port=19 protocol=tcp
+add action=accept chain=prerouting comment=*******************************************Firewall_For_IANA******************************** limit=1k,500:packet port=0 protocol=udp
+add action=accept chain=prerouting limit=1k,500:packet port=0 protocol=tcp
+add action=drop chain=prerouting port=0 protocol=udp
+add action=drop chain=prerouting port=0 protocol=tcp
+add action=accept chain=prerouting comment=*******************************************Firewall_For_SSDP******************************** limit=1k,500:packet port=1900 protocol=udp
+add action=accept chain=prerouting limit=1k,500:packet port=1900 protocol=tcp
+add action=drop chain=prerouting port=1900 protocol=udp
+add action=drop chain=prerouting port=1900 protocol=tcp
+add action=accept chain=prerouting comment=***DANGER***UDP&TCP_LIMIT_OVERALL in-interface=0.1_INTERNET_JUNIPER limit=600k,50k:packet protocol=udp
+add action=accept chain=prerouting in-interface=0.1_INTERNET_JUNIPER limit=600k,50k:packet protocol=tcp
+add action=accept chain=prerouting in-interface=0.1_INTERNET_JUNIPER limit=50k,5k:packet
+add action=drop chain=prerouting in-interface=0.1_INTERNET_JUNIPER protocol=udp
+add action=drop chain=prerouting in-interface=0.1_INTERNET_JUNIPER protocol=tcp
+add action=drop chain=prerouting in-interface=0.1_INTERNET_JUNIPER
+add action=accept chain=output comment=NMS dst-address-list=Allow_NMS port=161 protocol=tcp
+add action=accept chain=output dst-address-list=Allow_NMS port=161 protocol=udp
+add action=drop chain=output port=161 protocol=tcp
+add action=drop chain=output port=161 protocol=udp
+/ip firewall service-port
+set irc disabled=no
+set rtsp disabled=no
+[noc-badsha@NAT_RTR_HQ_02] > 
