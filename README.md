@@ -54,9 +54,9 @@ Each project is structured as follows:
 Each project has a **detailed installation guide** in its respective folder. Clone the repository and explore the documentation to set up and test configurations in a lab or production environment.
 
 ## 📩 Contact
-📧 Email: [Your Email]
-🔗 LinkedIn: [Your LinkedIn Profile]
-🌐 Website: [Your Website]
+📧 Email: [badshashorif@gmail.com]
+🔗 LinkedIn: [www.linkedin.com/in/badshashorif]
+🌐 Website: [https://www.upwork.com/freelancers/~0193c819c910829c93]
 
 ---
 
