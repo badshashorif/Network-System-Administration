@@ -76,7 +76,7 @@ Create a user for OVPN access:
 Set up the OVPN server interface:
 
 ```bash
-/interface ovpn-server server set enabled=yes certificate=server-template default-profile=ovpn-profile require-client-certificate=yes auth=sha1 cipher=aes256 port=1194 protocol=tcp
+/interface ovpn-server server add auth=sha1 certificate=server-template cipher=aes256-cbc default-profile=ovpn-profile disabled=no mac-address=FE:C8:E3:16:A4:88 name=ovpn-server1 require-client-certificate=yes
 ```
 
 ---
