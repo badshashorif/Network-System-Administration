@@ -1,0 +1,2 @@
+*.torrentbd.com
+*.torrentbd.net
